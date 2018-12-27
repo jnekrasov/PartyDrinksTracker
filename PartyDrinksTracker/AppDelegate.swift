@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        preloadDrinkTypes()
         return true
     }
 
@@ -43,12 +43,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
-
-    // MARK: - Core Data stack
-
+    
+    private func preloadDrinkTypes() {
+        do {
+            let context = DrinksDatabaseContext()
+            let drinkTypesRepository = DrinkTypesRepository(context)
+            try CleanPrePopullatedDrinkTypes(drinkTypesRepository)
+            try PrePopullateDrinkTypes(drinkTypesRepository)
+            context.SaveChanges()
+        } catch {
+            fatalError("Cannot preload DrinkTypes to local storage")
+        }
+    }
+    
+    private func PrePopullateDrinkTypes(_ drinkTypesRepository: DrinkTypesRepository) throws {
+        let prePopullatedDrinkTypesUrl = Bundle.main.url(
+            forResource: "PrePopullatedDrinkTypes",
+            withExtension: "json")
+        
+        let jsonData = try Data(contentsOf: prePopullatedDrinkTypesUrl!, options: .mappedIfSafe)
+        let jsonResult = try JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves)
+        
+        if let jsonResult = jsonResult as? Dictionary<String, String> {
+            try drinkTypesRepository.Add(
+                jsonResult.map({item in DrinkType(rawValue: Int32(item.key)!)!}))
+        }
+    }
+    
+    private func CleanPrePopullatedDrinkTypes(_ drinkTypesRepository: DrinkTypesRepository) throws {
+        let drinkTypes = try drinkTypesRepository.GetAll()
+        try drinkTypesRepository.Delete(drinkTypes)
+    }
+    
     lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
+        
+        /* The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
