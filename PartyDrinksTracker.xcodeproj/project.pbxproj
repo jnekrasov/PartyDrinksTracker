@@ -18,7 +18,6 @@
 		953E1C6821D3EEA200EB55CD /* PrePopullatedDrinkTypes.json in Resources */ = {isa = PBXBuildFile; fileRef = 953E1C6721D3EEA200EB55CD /* PrePopullatedDrinkTypes.json */; };
 		953E1C6A21D4D8A600EB55CD /* IDrinkTypesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E1C6921D4D8A600EB55CD /* IDrinkTypesRepository.swift */; };
 		953E1C6C21D4D8BB00EB55CD /* DrinkTypesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E1C6B21D4D8BB00EB55CD /* DrinkTypesRepository.swift */; };
-		953E1C6E21D50BF300EB55CD /* DrinkTitleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E1C6D21D50BF300EB55CD /* DrinkTitleFactory.swift */; };
 		95D78E7121C998D400B97B95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D78E7021C998D400B97B95 /* AppDelegate.swift */; };
 		95D78E7621C998D400B97B95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D78E7421C998D400B97B95 /* Main.storyboard */; };
 		95D78E7921C998D400B97B95 /* PartyDrinksTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95D78E7721C998D400B97B95 /* PartyDrinksTracker.xcdatamodeld */; };
@@ -58,7 +57,6 @@
 		953E1C6721D3EEA200EB55CD /* PrePopullatedDrinkTypes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PrePopullatedDrinkTypes.json; sourceTree = "<group>"; };
 		953E1C6921D4D8A600EB55CD /* IDrinkTypesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDrinkTypesRepository.swift; sourceTree = "<group>"; };
 		953E1C6B21D4D8BB00EB55CD /* DrinkTypesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTypesRepository.swift; sourceTree = "<group>"; };
-		953E1C6D21D50BF300EB55CD /* DrinkTitleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTitleFactory.swift; sourceTree = "<group>"; };
 		95D78E6D21C998D400B97B95 /* PartyDrinksTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyDrinksTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D78E7021C998D400B97B95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D78E7521C998D400B97B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -139,11 +137,10 @@
 			path = Persistence;
 			sourceTree = "<group>";
 		};
-		953E1C5D21D29A5200EB55CD /* Extensions */ = {
+		953E1C7121D62C5C00EB55CD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				953E1C5F21D29A8E00EB55CD /* RuntimeError.swift */,
-				953E1C6D21D50BF300EB55CD /* DrinkTitleFactory.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -171,7 +168,7 @@
 		95D78E6F21C998D400B97B95 /* PartyDrinksTracker */ = {
 			isa = PBXGroup;
 			children = (
-				953E1C5D21D29A5200EB55CD /* Extensions */,
+				953E1C7121D62C5C00EB55CD /* Extensions */,
 				953E1C4F21D1525400EB55CD /* Domain */,
 				953E1C4A21D14DF400EB55CD /* Persistence */,
 				95D78EA121CAF6E300B97B95 /* Controllers */,
@@ -354,7 +351,6 @@
 				95D78EA321CAF70A00B97B95 /* MainViewController.swift in Sources */,
 				953E1C6421D2C48100EB55CD /* DrinksFactory.swift in Sources */,
 				953E1C4E21D1512B00EB55CD /* DrinksRepository.swift in Sources */,
-				953E1C6E21D50BF300EB55CD /* DrinkTitleFactory.swift in Sources */,
 				953E1C5121D1526500EB55CD /* Drink.swift in Sources */,
 				953E1C5521D27C4500EB55CD /* IDrinksRepository.swift in Sources */,
 				953E1C4921D0CDC100EB55CD /* InputViewController.swift in Sources */,

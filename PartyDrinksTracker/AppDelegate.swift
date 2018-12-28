@@ -11,12 +11,19 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    private let isPrePopullatedParameterName = "isPrePopullated"
     var window: UIWindow?
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        preloadDrinkTypes()
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let defaults = UserDefaults.standard
+        
+        let isPrePopullated = defaults.bool(forKey: isPrePopullatedParameterName)
+        if (!isPrePopullated) {
+            prePopullateDrinkTypes()
+            defaults.set(true, forKey: isPrePopullatedParameterName)
+        }
+        
         return true
     }
 
@@ -44,19 +51,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
     
-    private func preloadDrinkTypes() {
+    private func prePopullateDrinkTypes() {
         do {
             let context = DrinksDatabaseContext()
             let drinkTypesRepository = DrinkTypesRepository(context)
-            try CleanPrePopullatedDrinkTypes(drinkTypesRepository)
-            try PrePopullateDrinkTypes(drinkTypesRepository)
+            try cleanPrePopullatedDrinkTypes(drinkTypesRepository)
+            try prePopullateDrinkTypesInternal(drinkTypesRepository)
             context.SaveChanges()
         } catch {
             fatalError("Cannot preload DrinkTypes to local storage")
         }
     }
     
-    private func PrePopullateDrinkTypes(_ drinkTypesRepository: DrinkTypesRepository) throws {
+    private func prePopullateDrinkTypesInternal(_ drinkTypesRepository: DrinkTypesRepository) throws {
         let prePopullatedDrinkTypesUrl = Bundle.main.url(
             forResource: "PrePopullatedDrinkTypes",
             withExtension: "json")
@@ -70,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    private func CleanPrePopullatedDrinkTypes(_ drinkTypesRepository: DrinkTypesRepository) throws {
+    private func cleanPrePopullatedDrinkTypes(_ drinkTypesRepository: DrinkTypesRepository) throws {
         let drinkTypes = try drinkTypesRepository.GetAll()
         try drinkTypesRepository.Delete(drinkTypes)
     }

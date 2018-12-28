@@ -30,13 +30,10 @@ class DrinkTypesRepository: IDrinkTypesRepository {
     public func Delete(_ drinkType: DrinkType!) throws {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: DrinkTypesRepository.drinkTypeEntityCollectionName)
         fetchRequest.predicate = NSPredicate(format: "id == %@", String(drinkType.rawValue))
+        fetchRequest.fetchLimit = 1
         
         let drinkTypeEntities =
             try self.context.fetch(fetchRequest) as! [DrinkTypeEntity]
-        
-        if (drinkTypeEntities.count > 1) {
-            throw RuntimeError("More then one DrinkTypeEntity was returned.")
-        }
         
         self.context.delete(drinkTypeEntities[0])
     }

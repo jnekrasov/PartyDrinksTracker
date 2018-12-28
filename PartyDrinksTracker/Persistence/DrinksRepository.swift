@@ -19,19 +19,17 @@ class DrinksRepository: IDrinksRepository {
     }
     
     public func Add(drink: Drink!) throws {
-        let entity = DrinkEntity(context: self.context)
-        
-        entity.id = drink.id
-        entity.price = drink.price
-        entity.created = drink.created
-        entity.type = try GetDrinkTypeFor(drink)
+        let drinkEntity = DrinkEntity(context: self.context)
+        drinkEntity.id = drink.id
+        drinkEntity.price = drink.price
+        drinkEntity.created = drink.created
+        drinkEntity.type = try GetDrinkTypeFor(drink)
     }
     
     public func GetAllForInterval(_ timeInterval: TimeInterval) throws -> [Drink] {
         let untilDate = NSDate(timeIntervalSinceNow: timeInterval)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: self.drinkEntityCollectionName)
         fetchRequest.predicate = NSPredicate(format: "created <= %@", untilDate)
-        fetchRequest.relationshipKeyPathsForPrefetching = ["type"]
         
         let drinkEntities = try self.context.fetch(fetchRequest) as! [DrinkEntity]
         
@@ -47,15 +45,12 @@ class DrinksRepository: IDrinksRepository {
     private func GetDrinkTypeFor(_ drink: Drink!) throws -> DrinkTypeEntity? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: DrinkTypesRepository.drinkTypeEntityCollectionName)
         fetchRequest.predicate = NSPredicate(format: "name == %@", drink.type.debugDescription)
+        fetchRequest.fetchLimit = 1
         
         let drinkTypeEntities =
-            try self.context.fetch(fetchRequest) as! [DrinkTypeEntity]
+            try self.context.fetch(fetchRequest)
         
-        if (drinkTypeEntities.count > 1) {
-            throw RuntimeError("More then one DrinkTypeEntity was returned.")
-        }
-        
-        return drinkTypeEntities[0];
+        return drinkTypeEntities.first as? DrinkTypeEntity;
     }
     
 

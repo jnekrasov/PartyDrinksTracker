@@ -10,7 +10,12 @@ import UIKit
 
 class InputViewController: UIViewController {
     private var currentDrink: Drink?
-        
+    private var currentTitle: String?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.titleLabel.text = currentTitle
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -38,7 +43,7 @@ class InputViewController: UIViewController {
     }
     
     public func updateTitle(title: String!) {
-        self.titleLabel.text = title
+        self.currentTitle = title;
     }
     
     public func updateCurrentDrink(drink: Drink!) {
