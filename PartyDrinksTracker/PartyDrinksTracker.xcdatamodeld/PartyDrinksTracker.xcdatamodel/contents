@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G4015" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DrinkCapacityEntity" representedClassName="DrinkCapacityEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="drinks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DrinkEntity" inverseName="capacity" inverseEntity="DrinkEntity" syncable="YES"/>
+        <relationship name="types" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DrinkTypeEntity" inverseName="capacities" inverseEntity="DrinkTypeEntity" syncable="YES"/>
+    </entity>
     <entity name="DrinkEntity" representedClassName="DrinkEntity" syncable="YES" codeGenerationType="class">
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="capacity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DrinkCapacityEntity" inverseName="drinks" inverseEntity="DrinkCapacityEntity" syncable="YES"/>
         <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DrinkTypeEntity" inverseName="drinks" inverseEntity="DrinkTypeEntity" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint/>
@@ -12,10 +19,12 @@
     <entity name="DrinkTypeEntity" representedClassName="DrinkTypeEntity" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="capacities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DrinkCapacityEntity" inverseName="types" inverseEntity="DrinkCapacityEntity" syncable="YES"/>
         <relationship name="drinks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DrinkEntity" inverseName="type" inverseEntity="DrinkEntity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DrinkEntity" positionX="-41.44921875" positionY="-298.59375" width="128" height="105"/>
-        <element name="DrinkTypeEntity" positionX="-54" positionY="18" width="128" height="90"/>
+        <element name="DrinkEntity" positionX="-41.44921875" positionY="-298.59375" width="128" height="120"/>
+        <element name="DrinkTypeEntity" positionX="-54" positionY="18" width="128" height="105"/>
+        <element name="DrinkCapacityEntity" positionX="-54" positionY="-117" width="128" height="105"/>
     </elements>
 </model>

@@ -237,6 +237,7 @@
                     </view>
                     <connections>
                         <outlet property="currentPriceInput" destination="eru-ik-MID" id="ur8-Bd-VxN"/>
+                        <outlet property="drinkCapacitySelector" destination="kza-gr-45J" id="nhH-yA-gxk"/>
                         <outlet property="titleLabel" destination="VHD-kv-9gr" id="s1f-6s-l4X"/>
                     </connections>
                 </viewController>

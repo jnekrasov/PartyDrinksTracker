@@ -1,5 +1,44 @@
 {
-    "0": "Beer",
-    "1": "Shots",
-    "2": "Wine"
+    "types":
+    {
+        "0": "Beer",
+        "1": "Shots",
+        "2": "Wine"
+    },
+    "capacities":
+    {
+        "0": "Small",
+        "1": "Big",
+        "2": "Glass",
+        "3": "Bottle :)",
+        "4": "Shot"
+    },
+    "typesCapacities": [
+        {
+            "typeId":"0",
+            "capacityId":"0"
+            
+        },
+        {
+            "typeId":"0",
+            "capacityId":"1"
+            
+        },
+        {
+            "typeId":"1",
+            "capacityId":"4"
+        },
+        {
+            "typeId":"1",
+            "capacityId":"3"
+        },
+        {
+            "typeId":"2",
+            "capacityId":"2"
+        },
+        {
+            "typeId":"2",
+            "capacityId":"3"
+        }
+    ]
 }

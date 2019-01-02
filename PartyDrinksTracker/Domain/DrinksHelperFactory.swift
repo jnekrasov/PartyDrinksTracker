@@ -8,28 +8,25 @@
 
 import Foundation
 
-class DrinksFactory {
-    public static func CreateFrom(segueIdentifier: String!) -> Drink! {
-        return Drink(type: GetDrinkTypeFrom(segueIdentifier: segueIdentifier))
-    }
-    
+class DrinksHelperFactory {
     public static func GetDrinkTitleFrom(segueIdentifier: String!, drinksCount: Int!) -> String! {
         let drinkType = GetDrinkTypeFrom(segueIdentifier: segueIdentifier)
         
         var title: String = ""
+        let count = drinksCount ?? 0
         
         switch drinkType {
             case DrinkType.Beer:
-                title = "\(drinksCount ?? 0) "
-                    + (drinksCount > 1 ? "beers" : "beer")
+                title = "\(count) "
+                    + (count > 1 ? "beers" : "beer")
                     + " for today! Planning for more? :)"
             case DrinkType.Wine:
-                title = "\(drinksCount ?? 0) "
-                    + (drinksCount > 1 ? "glasses" : "glass")
+                title = "\(count) "
+                    + (count > 1 ? "glasses" : "glass")
                     + " of wine for today! Planning for more? :)"
             default:
-                title = "\(drinksCount ?? 0) "
-                    + (drinksCount > 1 ? "shots" : "shot")
+                title = "\(count) "
+                    + (count > 1 ? "shots" : "shot")
                     + " for today! Planning for more? :)"
         }
         

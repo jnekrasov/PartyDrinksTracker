@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let isPrePopullated = defaults.bool(forKey: isPrePopullatedParameterName)
         if (!isPrePopullated) {
-            prePopullateDrinkTypes()
+            PrePopullateDrinkTypes()
             defaults.set(true, forKey: isPrePopullatedParameterName)
         }
         
@@ -51,19 +51,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
     
-    private func prePopullateDrinkTypes() {
+    private func PrePopullateDrinkTypes() {
         do {
             let context = DrinksDatabaseContext()
-            let drinkTypesRepository = DrinkTypesRepository(context)
-            try cleanPrePopullatedDrinkTypes(drinkTypesRepository)
-            try prePopullateDrinkTypesInternal(drinkTypesRepository)
+            let prePopullatedRepository = PrePopullatedRepository(context)
+            try prePopullatedRepository.CleanPrePopullatedDrinkTypes()
+            try PrePopullateDrinkTypesInternal(prePopullatedRepository)
             context.SaveChanges()
         } catch {
             fatalError("Cannot preload DrinkTypes to local storage")
         }
     }
     
-    private func prePopullateDrinkTypesInternal(_ drinkTypesRepository: DrinkTypesRepository) throws {
+    private func PrePopullateDrinkTypesInternal(_ prePopullatedRepository: PrePopullatedRepository!) throws {
         let prePopullatedDrinkTypesUrl = Bundle.main.url(
             forResource: "PrePopullatedDrinkTypes",
             withExtension: "json")
@@ -71,15 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let jsonData = try Data(contentsOf: prePopullatedDrinkTypesUrl!, options: .mappedIfSafe)
         let jsonResult = try JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves)
         
-        if let jsonResult = jsonResult as? Dictionary<String, String> {
-            try drinkTypesRepository.Add(
-                jsonResult.map({item in DrinkType(rawValue: Int32(item.key)!)!}))
-        }
-    }
-    
-    private func cleanPrePopullatedDrinkTypes(_ drinkTypesRepository: DrinkTypesRepository) throws {
-        let drinkTypes = try drinkTypesRepository.GetAll()
-        try drinkTypesRepository.Delete(drinkTypes)
+        try prePopullatedRepository.PrePopullateDrinkTypesFrom(jsonObject: jsonResult)
     }
     
     lazy var persistentContainer: NSPersistentContainer = {

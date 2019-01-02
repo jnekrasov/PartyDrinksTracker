@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 
 class DrinksDatabaseContext {
-    var Current: NSManagedObjectContext {
+    var Current: NSManagedObjectContext! {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }

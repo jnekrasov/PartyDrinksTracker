@@ -26,7 +26,6 @@ class MainViewController: UIViewController {
                 by: {$0.type})
             
             updateDrinksCounts()
-            
         } catch {
             fatalError("Cannot get all persisted drinks")
         }
@@ -41,10 +40,13 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let controller = segue.destination as! InputViewController
         let sequeIdentifier = segue.identifier
-        controller.updateCurrentDrink(drink: DrinksFactory.CreateFrom(segueIdentifier: sequeIdentifier))
-        controller.updateTitle(title: DrinksFactory.GetDrinkTitleFrom(
-            segueIdentifier: sequeIdentifier,
-            drinksCount: drinks[DrinksFactory.GetDrinkTypeFrom(segueIdentifier: sequeIdentifier)]?.count))
+        let creatableDrinkType = DrinksHelperFactory.GetDrinkTypeFrom(segueIdentifier: sequeIdentifier)
+        
+        controller.updateCurrentDrinkType(creatableDrinkType)
+        controller.updateTitle(
+            title: DrinksHelperFactory.GetDrinkTitleFrom(
+                segueIdentifier: sequeIdentifier,
+                drinksCount: drinks[creatableDrinkType]?.count))
     }
     
     private func updateDrinksCounts() {

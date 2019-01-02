@@ -12,12 +12,16 @@
 		953E1C4E21D1512B00EB55CD /* DrinksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E1C4D21D1512B00EB55CD /* DrinksRepository.swift */; };
 		953E1C5121D1526500EB55CD /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E1C5021D1526500EB55CD /* Drink.swift */; };
 		953E1C5521D27C4500EB55CD /* IDrinksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E1C5421D27C4500EB55CD /* IDrinksRepository.swift */; };
-		953E1C6021D29A8E00EB55CD /* RuntimeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E1C5F21D29A8E00EB55CD /* RuntimeError.swift */; };
 		953E1C6221D2A7B500EB55CD /* DrinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E1C6121D2A7B500EB55CD /* DrinkType.swift */; };
-		953E1C6421D2C48100EB55CD /* DrinksFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E1C6321D2C48100EB55CD /* DrinksFactory.swift */; };
+		953E1C6421D2C48100EB55CD /* DrinksHelperFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E1C6321D2C48100EB55CD /* DrinksHelperFactory.swift */; };
 		953E1C6821D3EEA200EB55CD /* PrePopullatedDrinkTypes.json in Resources */ = {isa = PBXBuildFile; fileRef = 953E1C6721D3EEA200EB55CD /* PrePopullatedDrinkTypes.json */; };
 		953E1C6A21D4D8A600EB55CD /* IDrinkTypesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E1C6921D4D8A600EB55CD /* IDrinkTypesRepository.swift */; };
 		953E1C6C21D4D8BB00EB55CD /* DrinkTypesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E1C6B21D4D8BB00EB55CD /* DrinkTypesRepository.swift */; };
+		95685A4F21D65C5F00D6E4D1 /* DrinkCapacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95685A4E21D65C5F00D6E4D1 /* DrinkCapacity.swift */; };
+		95685A5221D6713700D6E4D1 /* PrePopullatedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95685A5121D6713700D6E4D1 /* PrePopullatedRepository.swift */; };
+		9569063821DCC17900C16806 /* DrinkCapacitiesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9569063721DCC17900C16806 /* DrinkCapacitiesRepository.swift */; };
+		9569063A21DCC45800C16806 /* PersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9569063921DCC45800C16806 /* PersistenceError.swift */; };
+		9569063D21DCC47F00C16806 /* SerializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9569063C21DCC47F00C16806 /* SerializationError.swift */; };
 		95D78E7121C998D400B97B95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D78E7021C998D400B97B95 /* AppDelegate.swift */; };
 		95D78E7621C998D400B97B95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D78E7421C998D400B97B95 /* Main.storyboard */; };
 		95D78E7921C998D400B97B95 /* PartyDrinksTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95D78E7721C998D400B97B95 /* PartyDrinksTracker.xcdatamodeld */; };
@@ -51,12 +55,16 @@
 		953E1C4D21D1512B00EB55CD /* DrinksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksRepository.swift; sourceTree = "<group>"; };
 		953E1C5021D1526500EB55CD /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		953E1C5421D27C4500EB55CD /* IDrinksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDrinksRepository.swift; sourceTree = "<group>"; };
-		953E1C5F21D29A8E00EB55CD /* RuntimeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeError.swift; sourceTree = "<group>"; };
 		953E1C6121D2A7B500EB55CD /* DrinkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkType.swift; sourceTree = "<group>"; };
-		953E1C6321D2C48100EB55CD /* DrinksFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksFactory.swift; sourceTree = "<group>"; };
+		953E1C6321D2C48100EB55CD /* DrinksHelperFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksHelperFactory.swift; sourceTree = "<group>"; };
 		953E1C6721D3EEA200EB55CD /* PrePopullatedDrinkTypes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PrePopullatedDrinkTypes.json; sourceTree = "<group>"; };
 		953E1C6921D4D8A600EB55CD /* IDrinkTypesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDrinkTypesRepository.swift; sourceTree = "<group>"; };
 		953E1C6B21D4D8BB00EB55CD /* DrinkTypesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTypesRepository.swift; sourceTree = "<group>"; };
+		95685A4E21D65C5F00D6E4D1 /* DrinkCapacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCapacity.swift; sourceTree = "<group>"; };
+		95685A5121D6713700D6E4D1 /* PrePopullatedRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrePopullatedRepository.swift; sourceTree = "<group>"; };
+		9569063721DCC17900C16806 /* DrinkCapacitiesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCapacitiesRepository.swift; sourceTree = "<group>"; };
+		9569063921DCC45800C16806 /* PersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceError.swift; sourceTree = "<group>"; };
+		9569063C21DCC47F00C16806 /* SerializationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationError.swift; sourceTree = "<group>"; };
 		95D78E6D21C998D400B97B95 /* PartyDrinksTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyDrinksTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D78E7021C998D400B97B95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D78E7521C998D400B97B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,10 +109,13 @@
 		953E1C4A21D14DF400EB55CD /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				9569063B21DCC46100C16806 /* Errors */,
+				95685A5021D670E900D6E4D1 /* PrePopullated */,
 				953E1C4B21D14E2B00EB55CD /* DrinksDatabaseContext.swift */,
 				953E1C4D21D1512B00EB55CD /* DrinksRepository.swift */,
 				953E1C6721D3EEA200EB55CD /* PrePopullatedDrinkTypes.json */,
 				953E1C6B21D4D8BB00EB55CD /* DrinkTypesRepository.swift */,
+				9569063721DCC17900C16806 /* DrinkCapacitiesRepository.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -115,7 +126,8 @@
 				953E1C5221D27C1500EB55CD /* Contracts */,
 				953E1C5021D1526500EB55CD /* Drink.swift */,
 				953E1C6121D2A7B500EB55CD /* DrinkType.swift */,
-				953E1C6321D2C48100EB55CD /* DrinksFactory.swift */,
+				953E1C6321D2C48100EB55CD /* DrinksHelperFactory.swift */,
+				95685A4E21D65C5F00D6E4D1 /* DrinkCapacity.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -137,12 +149,21 @@
 			path = Persistence;
 			sourceTree = "<group>";
 		};
-		953E1C7121D62C5C00EB55CD /* Extensions */ = {
+		95685A5021D670E900D6E4D1 /* PrePopullated */ = {
 			isa = PBXGroup;
 			children = (
-				953E1C5F21D29A8E00EB55CD /* RuntimeError.swift */,
+				95685A5121D6713700D6E4D1 /* PrePopullatedRepository.swift */,
 			);
-			path = Extensions;
+			path = PrePopullated;
+			sourceTree = "<group>";
+		};
+		9569063B21DCC46100C16806 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				9569063921DCC45800C16806 /* PersistenceError.swift */,
+				9569063C21DCC47F00C16806 /* SerializationError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		95D78E6421C998D400B97B95 = {
@@ -168,7 +189,6 @@
 		95D78E6F21C998D400B97B95 /* PartyDrinksTracker */ = {
 			isa = PBXGroup;
 			children = (
-				953E1C7121D62C5C00EB55CD /* Extensions */,
 				953E1C4F21D1525400EB55CD /* Domain */,
 				953E1C4A21D14DF400EB55CD /* Persistence */,
 				95D78EA121CAF6E300B97B95 /* Controllers */,
@@ -341,18 +361,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9569063A21DCC45800C16806 /* PersistenceError.swift in Sources */,
+				9569063D21DCC47F00C16806 /* SerializationError.swift in Sources */,
+				9569063821DCC17900C16806 /* DrinkCapacitiesRepository.swift in Sources */,
 				953E1C6A21D4D8A600EB55CD /* IDrinkTypesRepository.swift in Sources */,
 				953E1C6221D2A7B500EB55CD /* DrinkType.swift in Sources */,
-				953E1C6021D29A8E00EB55CD /* RuntimeError.swift in Sources */,
 				95D78E7921C998D400B97B95 /* PartyDrinksTracker.xcdatamodeld in Sources */,
 				953E1C6C21D4D8BB00EB55CD /* DrinkTypesRepository.swift in Sources */,
 				953E1C4C21D14E2B00EB55CD /* DrinksDatabaseContext.swift in Sources */,
 				95D78E7121C998D400B97B95 /* AppDelegate.swift in Sources */,
 				95D78EA321CAF70A00B97B95 /* MainViewController.swift in Sources */,
-				953E1C6421D2C48100EB55CD /* DrinksFactory.swift in Sources */,
+				953E1C6421D2C48100EB55CD /* DrinksHelperFactory.swift in Sources */,
 				953E1C4E21D1512B00EB55CD /* DrinksRepository.swift in Sources */,
+				95685A5221D6713700D6E4D1 /* PrePopullatedRepository.swift in Sources */,
 				953E1C5121D1526500EB55CD /* Drink.swift in Sources */,
 				953E1C5521D27C4500EB55CD /* IDrinksRepository.swift in Sources */,
+				95685A4F21D65C5F00D6E4D1 /* DrinkCapacity.swift in Sources */,
 				953E1C4921D0CDC100EB55CD /* InputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -35,7 +35,7 @@ class DrinkTypesRepository: IDrinkTypesRepository {
         let drinkTypeEntities =
             try self.context.fetch(fetchRequest) as! [DrinkTypeEntity]
         
-        self.context.delete(drinkTypeEntities[0])
+        self.context.delete(drinkTypeEntities.first!)
     }
     
     public func Add(_ drinkType: DrinkType!) throws {

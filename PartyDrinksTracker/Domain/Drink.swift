@@ -13,6 +13,7 @@ class Drink {
     var created: Date! = Date()
     var id: UUID! = UUID()
     var price: Double!
+    var capacity: DrinkCapacity!
     
     init(type: DrinkType!) {
         self.type = type
