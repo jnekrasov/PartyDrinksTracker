@@ -12,6 +12,6 @@ enum DrinkCapacity: Int32 {
     case Small = 0
     case Big = 1
     case Glass = 2
-    case Bottle = 3
-    case Shot = 4
+    case Shot = 3
+    case Bottle = 4
 }

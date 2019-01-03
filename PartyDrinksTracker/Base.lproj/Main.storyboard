@@ -51,6 +51,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn3-8Y-63N" userLabel="Cigarrete">
                                 <rect key="frame" x="143" y="535" width="128" height="85"/>
                                 <state key="normal" image="Cigarrete"/>
+                                <connections>
+                                    <action selector="OnCigarreteAdded:" destination="BYZ-38-t0r" eventType="touchDown" id="x9K-pY-zhi"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lv-oL-e9e" userLabel="BeerCount">
                                 <rect key="frame" x="116" y="149" width="30" height="33"/>
@@ -104,6 +107,19 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEE-vS-CDj" userLabel="BeerPrice">
+                                <rect key="frame" x="251" y="27" width="66" height="33"/>
+                                <color key="backgroundColor" red="0.45882352939999999" green="0.76862745099999996" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                                <state key="normal" title="10 €/$">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -112,9 +128,11 @@
                             <constraint firstItem="7lv-oL-e9e" firstAttribute="top" secondItem="FWz-gU-odt" secondAttribute="bottom" constant="-10" id="6re-kl-Wmg"/>
                             <constraint firstItem="hn3-8Y-63N" firstAttribute="leading" secondItem="Pwi-HY-KaU" secondAttribute="trailing" constant="2" id="Fip-xR-9xG"/>
                             <constraint firstItem="ATZ-Va-ksd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="J6N-yH-AC8"/>
+                            <constraint firstItem="iEE-vS-CDj" firstAttribute="bottom" secondItem="FWz-gU-odt" secondAttribute="top" constant="10" id="Npd-yc-9Xw"/>
                             <constraint firstItem="Oac-q9-iwL" firstAttribute="top" secondItem="Byt-LU-Jp8" secondAttribute="bottom" constant="-10" id="R9c-b3-z1E"/>
                             <constraint firstItem="FWz-gU-odt" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bkV-eH-jJ3"/>
                             <constraint firstItem="Pwi-HY-KaU" firstAttribute="top" secondItem="hn3-8Y-63N" secondAttribute="bottom" constant="-10" id="c3d-I1-ris"/>
+                            <constraint firstItem="FWz-gU-odt" firstAttribute="trailing" secondItem="iEE-vS-CDj" secondAttribute="leading" constant="20" id="g4G-IL-8yL"/>
                             <constraint firstItem="Byt-LU-Jp8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hSK-jc-Qa5"/>
                             <constraint firstItem="ATZ-Va-ksd" firstAttribute="leading" secondItem="BaZ-AN-viO" secondAttribute="trailing" id="lrd-gg-I2P"/>
                             <constraint firstItem="hn3-8Y-63N" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="m1A-6Q-O9O"/>
@@ -126,6 +144,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="QvL-EB-Day"/>
                     <connections>
                         <outlet property="beerCount" destination="7lv-oL-e9e" id="O0D-TN-w6t"/>
                         <outlet property="cigarretesCount" destination="Pwi-HY-KaU" id="FyZ-cE-lsN"/>
@@ -135,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.23188405797103" y="132.88043478260872"/>
+            <point key="canvasLocation" x="1043.4782608695652" y="132.88043478260872"/>
         </scene>
         <!--Input View Controller-->
         <scene sceneID="3Wd-G2-Rs7">
@@ -168,7 +187,8 @@
                                             <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="OnDrinkAdded:" destination="7FU-iF-2ET" eventType="touchUpInside" id="qcg-eu-yuA"/>
+                                            <action selector="OnDrinkAdded:" destination="7FU-iF-2ET" eventType="touchDown" id="80e-iJ-ZZq"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="addedSegue" id="quJ-b4-hDf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQZ-oX-Mga" userLabel="Decline">
@@ -181,7 +201,7 @@
                                             <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="OnClosePopup:" destination="7FU-iF-2ET" eventType="touchUpInside" id="nJq-bM-INC"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="cancelledSegue" id="Oui-4e-bLe"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THIS IS YOUR {0}? PLANNIN FOR MORE? :)" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHD-kv-9gr" userLabel="Title">
@@ -243,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7nJ-2e-Mpe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="892.75362318840587" y="132.88043478260872"/>
+            <point key="canvasLocation" x="1800.0000000000002" y="132.88043478260872"/>
         </scene>
     </scenes>
     <resources>
@@ -253,6 +273,7 @@
         <image name="Wine" width="92" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9DK-9Z-ynn"/>
+        <segue reference="a2m-mB-Zh3"/>
+        <segue reference="Oui-4e-bLe"/>
     </inferredMetricsTieBreakers>
 </document>

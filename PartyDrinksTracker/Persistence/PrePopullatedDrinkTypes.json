@@ -10,8 +10,8 @@
         "0": "Small",
         "1": "Big",
         "2": "Glass",
-        "3": "Bottle :)",
-        "4": "Shot"
+        "4": "Bottle",
+        "3": "Shot"
     },
     "typesCapacities": [
         {
@@ -26,11 +26,11 @@
         },
         {
             "typeId":"1",
-            "capacityId":"4"
+            "capacityId":"3"
         },
         {
             "typeId":"1",
-            "capacityId":"3"
+            "capacityId":"4"
         },
         {
             "typeId":"2",
@@ -38,7 +38,7 @@
         },
         {
             "typeId":"2",
-            "capacityId":"3"
+            "capacityId":"4"
         }
     ]
 }

@@ -9,27 +9,52 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
     private var drinks: Dictionary<DrinkType, [Drink]> = [:]
+    private var cigarretes: [Cigarrete] = []
+    private let context: DrinksDatabaseContext!
+    private let drinksRepository: DrinksRepository!
+    private let cigarretesRepository: CigarretesRepository!
+    
     
     @IBOutlet weak var beerCount: UIButton!
     @IBOutlet weak var wineCount: UIButton!
     @IBOutlet weak var shotsCount: UIButton!
     @IBOutlet weak var cigarretesCount: UIButton!
     
+    required init?(coder aDecoder: NSCoder) {
+        self.context = DrinksDatabaseContext()
+        self.drinksRepository = DrinksRepository(context)
+        self.cigarretesRepository = CigarretesRepository(context)
+        
+        super.init(coder: aDecoder)
+    }
+    
+    @IBAction func OnCigarreteAdded(_ sender: Any) {
+        do {
+            let created = Cigarrete()
+            cigarretes.append(created)
+            try cigarretesRepository.Add(Cigarrete())
+            context.SaveChanges()
+            updateCounts()
+        } catch {
+            fatalError("Cannot add newly smoked cigarrete :)")
+        }
+        updateCounts()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         do {
-            let drinksRepository = DrinksRepository(DrinksDatabaseContext())
-            
+            let interval = TimeInterval(8 * 60 * 60)
             drinks = Dictionary(
-                grouping: try drinksRepository.GetAllForInterval(TimeInterval(8 * 60 * 60)),
+                grouping: try drinksRepository.GetAllForInterval(interval),
                 by: {$0.type})
             
-            updateDrinksCounts()
+            cigarretes = try cigarretesRepository.GetAllForInterval(interval)
         } catch {
-            fatalError("Cannot get all persisted drinks")
+            fatalError("Cannot get persisted drinks or cigarretes")
         }
-
+        
+        updateCounts()
         super.viewWillAppear(animated)
     }
     
@@ -49,24 +74,27 @@ class MainViewController: UIViewController {
                 drinksCount: drinks[creatableDrinkType]?.count))
     }
     
-    private func updateDrinksCounts() {
+    private func updateCounts() {
         if let beers = drinks[DrinkType.Beer] {
-            beerCount.setTitle(String(beers.count), for: UIControl.State.normal)
-            beerCount.backgroundColor = getDrinksCountColor(beers.count)
+            beerCount.setTitle(String(beers.count), for: .normal)
+            beerCount.backgroundColor = getCountColor(beers.count)
         }
         
         if let wines = drinks[DrinkType.Wine] {
-            wineCount.setTitle(String(wines.count), for: UIControl.State.normal)
-            wineCount.backgroundColor = getDrinksCountColor(wines.count)
+            wineCount.setTitle(String(wines.count), for: .normal)
+            wineCount.backgroundColor = getCountColor(wines.count)
         }
         
         if let shots = drinks[DrinkType.Shots] {
-            shotsCount.setTitle(String(shots.count), for: UIControl.State.normal)
-            shotsCount.backgroundColor = getDrinksCountColor(shots.count)
+            shotsCount.setTitle(String(shots.count), for: .normal)
+            shotsCount.backgroundColor = getCountColor(shots.count)
         }
+        
+        cigarretesCount.setTitle(String(cigarretes.count), for: .normal)
+        cigarretesCount.backgroundColor = getCountColor(cigarretes.count)
     }
     
-    private func getDrinksCountColor(_ count: Int) -> UIColor {
+    private func getCountColor(_ count: Int) -> UIColor {
         switch count {
             case _ where count <= 3:
                 return UIColor(red:0.00, green:0.80, blue:0.40, alpha:1.0)

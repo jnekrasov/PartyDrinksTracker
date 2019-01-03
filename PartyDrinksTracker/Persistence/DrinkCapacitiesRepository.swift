@@ -12,7 +12,7 @@ import CoreData
 class DrinkCapacitiesRepository {
     private var context: NSManagedObjectContext
     
-    private static let drinkCapacityEntityCollectionName: String = "DrinkCapacityEntity"
+    public static let drinkCapacityEntityCollectionName: String = "DrinkCapacityEntity"
     
     init(_ context: DrinksDatabaseContext!) {
         self.context = context.Current
@@ -34,5 +34,6 @@ class DrinkCapacitiesRepository {
             let capacity = DrinkCapacity(rawValue: item.id)
             return capacity!
         })
+        .sorted(by: { (current, other)-> Bool in return current.rawValue < other.rawValue})
     }
 }

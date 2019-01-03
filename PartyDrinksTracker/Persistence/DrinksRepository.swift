@@ -24,6 +24,7 @@ class DrinksRepository: IDrinksRepository {
         drinkEntity.price = drink.price
         drinkEntity.created = drink.created
         drinkEntity.type = try GetDrinkTypeFor(drink)
+        drinkEntity.capacity = try GetDrinkCapacity(drink)
     }
     
     public func GetAllForInterval(_ timeInterval: TimeInterval) throws -> [Drink] {
@@ -42,9 +43,20 @@ class DrinksRepository: IDrinksRepository {
         })
     }
     
+    private func GetDrinkCapacity(_ drink: Drink!) throws -> DrinkCapacityEntity? {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: DrinkCapacitiesRepository.drinkCapacityEntityCollectionName)
+        fetchRequest.predicate = NSPredicate(format: "id == %@", String(drink.capacity.rawValue))
+        fetchRequest.fetchLimit = 1
+        
+        let drinkCapacityEntities =
+            try self.context.fetch(fetchRequest)
+        
+        return drinkCapacityEntities.first as? DrinkCapacityEntity;
+    }
+    
     private func GetDrinkTypeFor(_ drink: Drink!) throws -> DrinkTypeEntity? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: DrinkTypesRepository.drinkTypeEntityCollectionName)
-        fetchRequest.predicate = NSPredicate(format: "name == %@", drink.type.debugDescription)
+        fetchRequest.predicate = NSPredicate(format: "id == %@", String(drink.type.rawValue))
         fetchRequest.fetchLimit = 1
         
         let drinkTypeEntities =

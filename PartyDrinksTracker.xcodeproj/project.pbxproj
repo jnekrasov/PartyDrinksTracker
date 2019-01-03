@@ -22,6 +22,9 @@
 		9569063821DCC17900C16806 /* DrinkCapacitiesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9569063721DCC17900C16806 /* DrinkCapacitiesRepository.swift */; };
 		9569063A21DCC45800C16806 /* PersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9569063921DCC45800C16806 /* PersistenceError.swift */; };
 		9569063D21DCC47F00C16806 /* SerializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9569063C21DCC47F00C16806 /* SerializationError.swift */; };
+		9569063F21DD138A00C16806 /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9569063E21DD138A00C16806 /* UserDefaultsRepository.swift */; };
+		95D1E65321DE2289005B93BE /* Cigarrete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D1E65221DE2289005B93BE /* Cigarrete.swift */; };
+		95D1E65521DE3066005B93BE /* CigarretesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D1E65421DE3066005B93BE /* CigarretesRepository.swift */; };
 		95D78E7121C998D400B97B95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D78E7021C998D400B97B95 /* AppDelegate.swift */; };
 		95D78E7621C998D400B97B95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D78E7421C998D400B97B95 /* Main.storyboard */; };
 		95D78E7921C998D400B97B95 /* PartyDrinksTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95D78E7721C998D400B97B95 /* PartyDrinksTracker.xcdatamodeld */; };
@@ -65,6 +68,9 @@
 		9569063721DCC17900C16806 /* DrinkCapacitiesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCapacitiesRepository.swift; sourceTree = "<group>"; };
 		9569063921DCC45800C16806 /* PersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceError.swift; sourceTree = "<group>"; };
 		9569063C21DCC47F00C16806 /* SerializationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationError.swift; sourceTree = "<group>"; };
+		9569063E21DD138A00C16806 /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
+		95D1E65221DE2289005B93BE /* Cigarrete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cigarrete.swift; sourceTree = "<group>"; };
+		95D1E65421DE3066005B93BE /* CigarretesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CigarretesRepository.swift; sourceTree = "<group>"; };
 		95D78E6D21C998D400B97B95 /* PartyDrinksTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyDrinksTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D78E7021C998D400B97B95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D78E7521C998D400B97B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,6 +122,8 @@
 				953E1C6721D3EEA200EB55CD /* PrePopullatedDrinkTypes.json */,
 				953E1C6B21D4D8BB00EB55CD /* DrinkTypesRepository.swift */,
 				9569063721DCC17900C16806 /* DrinkCapacitiesRepository.swift */,
+				9569063E21DD138A00C16806 /* UserDefaultsRepository.swift */,
+				95D1E65421DE3066005B93BE /* CigarretesRepository.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -128,6 +136,7 @@
 				953E1C6121D2A7B500EB55CD /* DrinkType.swift */,
 				953E1C6321D2C48100EB55CD /* DrinksHelperFactory.swift */,
 				95685A4E21D65C5F00D6E4D1 /* DrinkCapacity.swift */,
+				95D1E65221DE2289005B93BE /* Cigarrete.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -367,12 +376,15 @@
 				953E1C6A21D4D8A600EB55CD /* IDrinkTypesRepository.swift in Sources */,
 				953E1C6221D2A7B500EB55CD /* DrinkType.swift in Sources */,
 				95D78E7921C998D400B97B95 /* PartyDrinksTracker.xcdatamodeld in Sources */,
+				95D1E65521DE3066005B93BE /* CigarretesRepository.swift in Sources */,
 				953E1C6C21D4D8BB00EB55CD /* DrinkTypesRepository.swift in Sources */,
 				953E1C4C21D14E2B00EB55CD /* DrinksDatabaseContext.swift in Sources */,
 				95D78E7121C998D400B97B95 /* AppDelegate.swift in Sources */,
 				95D78EA321CAF70A00B97B95 /* MainViewController.swift in Sources */,
 				953E1C6421D2C48100EB55CD /* DrinksHelperFactory.swift in Sources */,
 				953E1C4E21D1512B00EB55CD /* DrinksRepository.swift in Sources */,
+				9569063F21DD138A00C16806 /* UserDefaultsRepository.swift in Sources */,
+				95D1E65321DE2289005B93BE /* Cigarrete.swift in Sources */,
 				95685A5221D6713700D6E4D1 /* PrePopullatedRepository.swift in Sources */,
 				953E1C5121D1526500EB55CD /* Drink.swift in Sources */,
 				953E1C5521D27C4500EB55CD /* IDrinksRepository.swift in Sources */,
