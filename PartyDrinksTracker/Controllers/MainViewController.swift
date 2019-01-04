@@ -21,6 +21,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var shotsCount: UIButton!
     @IBOutlet weak var cigarretesCount: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var beerPrice: UIButton!
+    @IBOutlet weak var winePrice: UIButton!
+    @IBOutlet weak var shotsPrice: UIButton!
     
     required init?(coder aDecoder: NSCoder) {
         self.context = DrinksDatabaseContext()
@@ -82,16 +85,22 @@ class MainViewController: UIViewController {
         if let beers = drinks[DrinkType.Beer] {
             beerCount.setTitle(String(beers.count), for: .normal)
             beerCount.backgroundColor = getCountColor(beers.count)
+            beerPrice.setTitle(String(format: "%.1f€$", beers.reduce(0, {$0 + $1.price})), for: .normal)
+            beerPrice.backgroundColor = getCountColor(beers.count)
         }
         
         if let wines = drinks[DrinkType.Wine] {
             wineCount.setTitle(String(wines.count), for: .normal)
             wineCount.backgroundColor = getCountColor(wines.count)
+            winePrice.setTitle(String(format: "%.1f€$", wines.reduce(0, {$0 + $1.price})), for: .normal)
+            winePrice.backgroundColor = getCountColor(wines.count)
         }
         
         if let shots = drinks[DrinkType.Shots] {
             shotsCount.setTitle(String(shots.count), for: .normal)
             shotsCount.backgroundColor = getCountColor(shots.count)
+            shotsPrice.setTitle(String(format: "%.1f€$", shots.reduce(0, {$0 + $1.price})), for: .normal)
+            shotsPrice.backgroundColor = getCountColor(shots.count)
         }
         
         cigarretesCount.setTitle(String(cigarretes.count), for: .normal)
