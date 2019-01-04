@@ -18,27 +18,139 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWz-gU-odt" userLabel="Beer">
-                                <rect key="frame" x="143" y="50" width="128" height="109"/>
-                                <state key="normal" image="Beer"/>
-                                <connections>
-                                    <segue destination="7FU-iF-2ET" kind="presentation" identifier="beerSegue" id="1aG-pN-gGS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byt-LU-Jp8" userLabel="Wine">
-                                <rect key="frame" x="161" y="199" width="92" height="128"/>
-                                <state key="normal" image="Wine"/>
-                                <connections>
-                                    <segue destination="7FU-iF-2ET" kind="presentation" identifier="wineSegue" id="a2m-mB-Zh3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATZ-Va-ksd" userLabel="Shots">
-                                <rect key="frame" x="145" y="367" width="124" height="128"/>
-                                <state key="normal" image="Shots"/>
-                                <connections>
-                                    <segue destination="7FU-iF-2ET" kind="presentation" identifier="shotsSegue" id="9DK-9Z-ynn"/>
-                                </connections>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syj-Sl-Osm">
+                                <rect key="frame" x="2" y="0.0" width="412" height="663"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWz-gU-odt" userLabel="Beer">
+                                        <rect key="frame" x="143" y="40" width="128" height="109"/>
+                                        <state key="normal" image="Beer"/>
+                                        <connections>
+                                            <segue destination="7FU-iF-2ET" kind="presentation" identifier="beerSegue" id="1aG-pN-gGS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lv-oL-e9e" userLabel="BeerCount">
+                                        <rect key="frame" x="116" y="139" width="30" height="33"/>
+                                        <color key="backgroundColor" red="0.34901960784313724" green="0.78431372549019607" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                                        <state key="normal" title="0">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEE-vS-CDj" userLabel="BeerPrice">
+                                        <rect key="frame" x="256" y="139" width="55" height="33"/>
+                                        <color key="backgroundColor" red="0.45882352939999999" green="0.76862745099999996" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                                        <state key="normal" title="0.0€$">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byt-LU-Jp8" userLabel="Wine">
+                                        <rect key="frame" x="161" y="189" width="92" height="128"/>
+                                        <state key="normal" image="Wine"/>
+                                        <connections>
+                                            <segue destination="7FU-iF-2ET" kind="presentation" identifier="wineSegue" id="a2m-mB-Zh3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oac-q9-iwL" userLabel="WineCount">
+                                        <rect key="frame" x="131" y="307" width="30" height="33"/>
+                                        <color key="backgroundColor" red="0.45882352941176469" green="0.7686274509803922" blue="0.47843137254901963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                                        <state key="normal" title="0">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zve-RB-vXx" userLabel="WinePrice">
+                                        <rect key="frame" x="257" y="307" width="55" height="33"/>
+                                        <color key="backgroundColor" red="0.45882352939999999" green="0.76862745099999996" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                                        <state key="normal" title="0.0€$">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATZ-Va-ksd" userLabel="Shots">
+                                        <rect key="frame" x="145" y="357" width="124" height="128"/>
+                                        <state key="normal" image="Shots"/>
+                                        <connections>
+                                            <segue destination="7FU-iF-2ET" kind="presentation" identifier="shotsSegue" id="9DK-9Z-ynn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaZ-AN-viO" userLabel="ShotsCount">
+                                        <rect key="frame" x="115" y="475" width="30" height="33"/>
+                                        <color key="backgroundColor" red="0.45882352941176469" green="0.7686274509803922" blue="0.47843137254901963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                                        <state key="normal" title="0">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pwi-HY-KaU" userLabel="CigarreteCount">
+                                        <rect key="frame" x="111" y="600" width="30" height="33"/>
+                                        <color key="backgroundColor" red="0.45882352941176469" green="0.7686274509803922" blue="0.47843137254901963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                                        <state key="normal" title="0">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn3-8Y-63N" userLabel="Cigarrete">
+                                        <rect key="frame" x="143" y="525" width="128" height="85"/>
+                                        <state key="normal" image="Cigarrete"/>
+                                        <connections>
+                                            <action selector="OnCigarreteAdded:" destination="BYZ-38-t0r" eventType="touchDown" id="x9K-pY-zhi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="zve-RB-vXx" firstAttribute="top" secondItem="Byt-LU-Jp8" secondAttribute="bottom" constant="-10" id="5yN-aF-6Bb"/>
+                                    <constraint firstItem="Oac-q9-iwL" firstAttribute="top" secondItem="Byt-LU-Jp8" secondAttribute="bottom" constant="-10" id="6N0-ZO-24A"/>
+                                    <constraint firstItem="Pwi-HY-KaU" firstAttribute="top" secondItem="hn3-8Y-63N" secondAttribute="bottom" constant="-10" id="8w6-w9-14U"/>
+                                    <constraint firstItem="Byt-LU-Jp8" firstAttribute="trailing" secondItem="zve-RB-vXx" secondAttribute="leading" constant="-4" id="DMK-zE-1eT"/>
+                                    <constraint firstItem="FWz-gU-odt" firstAttribute="centerX" secondItem="syj-Sl-Osm" secondAttribute="centerX" id="F7s-va-DFL"/>
+                                    <constraint firstItem="iEE-vS-CDj" firstAttribute="top" secondItem="FWz-gU-odt" secondAttribute="bottom" constant="-10" id="FoI-Bt-bZQ"/>
+                                    <constraint firstItem="ATZ-Va-ksd" firstAttribute="leading" secondItem="BaZ-AN-viO" secondAttribute="trailing" id="IKy-yS-iaX"/>
+                                    <constraint firstItem="FWz-gU-odt" firstAttribute="leading" secondItem="7lv-oL-e9e" secondAttribute="trailing" constant="-3" id="JJg-3z-HRX"/>
+                                    <constraint firstItem="BaZ-AN-viO" firstAttribute="top" secondItem="ATZ-Va-ksd" secondAttribute="bottom" constant="-10" id="MhD-G6-UJY"/>
+                                    <constraint firstItem="ATZ-Va-ksd" firstAttribute="top" secondItem="Byt-LU-Jp8" secondAttribute="bottom" constant="40" id="OhN-ch-zhQ"/>
+                                    <constraint firstItem="7lv-oL-e9e" firstAttribute="top" secondItem="FWz-gU-odt" secondAttribute="bottom" constant="-10" id="Pha-aA-eup"/>
+                                    <constraint firstItem="Byt-LU-Jp8" firstAttribute="centerX" secondItem="syj-Sl-Osm" secondAttribute="centerX" id="RWo-XS-lee"/>
+                                    <constraint firstItem="hn3-8Y-63N" firstAttribute="leading" secondItem="Pwi-HY-KaU" secondAttribute="trailing" constant="2" id="Wo5-me-XaX"/>
+                                    <constraint firstItem="hn3-8Y-63N" firstAttribute="centerX" secondItem="syj-Sl-Osm" secondAttribute="centerX" id="e8a-jf-Zqa"/>
+                                    <constraint firstItem="Byt-LU-Jp8" firstAttribute="top" secondItem="FWz-gU-odt" secondAttribute="bottom" constant="40" id="eH6-m7-EEe"/>
+                                    <constraint firstItem="Byt-LU-Jp8" firstAttribute="leading" secondItem="Oac-q9-iwL" secondAttribute="trailing" id="fCj-CF-dHu"/>
+                                    <constraint firstItem="FWz-gU-odt" firstAttribute="trailing" secondItem="iEE-vS-CDj" secondAttribute="leading" constant="15" id="hBa-FH-6Ld"/>
+                                    <constraint firstItem="FWz-gU-odt" firstAttribute="top" secondItem="syj-Sl-Osm" secondAttribute="top" constant="40" id="mpM-fU-W5E"/>
+                                    <constraint firstItem="ATZ-Va-ksd" firstAttribute="centerX" secondItem="syj-Sl-Osm" secondAttribute="centerX" id="mus-if-904"/>
+                                    <constraint firstItem="hn3-8Y-63N" firstAttribute="top" secondItem="ATZ-Va-ksd" secondAttribute="bottom" constant="40" id="q1I-wB-81z"/>
+                                </constraints>
+                            </scrollView>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vDb-Db-9zC">
                                 <rect key="frame" x="0.0" y="687" width="414" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -48,99 +160,15 @@
                                     <tabBarItem systemItem="more" id="euD-FR-Fgr"/>
                                 </items>
                             </tabBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn3-8Y-63N" userLabel="Cigarrete">
-                                <rect key="frame" x="143" y="535" width="128" height="85"/>
-                                <state key="normal" image="Cigarrete"/>
-                                <connections>
-                                    <action selector="OnCigarreteAdded:" destination="BYZ-38-t0r" eventType="touchDown" id="x9K-pY-zhi"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lv-oL-e9e" userLabel="BeerCount">
-                                <rect key="frame" x="116" y="149" width="30" height="33"/>
-                                <color key="backgroundColor" red="0.34901960784313724" green="0.78431372549019607" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
-                                <state key="normal" title="0">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oac-q9-iwL" userLabel="WineCount">
-                                <rect key="frame" x="131" y="317" width="30" height="33"/>
-                                <color key="backgroundColor" red="0.45882352941176469" green="0.7686274509803922" blue="0.47843137254901963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
-                                <state key="normal" title="0">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaZ-AN-viO" userLabel="ShotsCount">
-                                <rect key="frame" x="115" y="485" width="30" height="33"/>
-                                <color key="backgroundColor" red="0.45882352941176469" green="0.7686274509803922" blue="0.47843137254901963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
-                                <state key="normal" title="0">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pwi-HY-KaU" userLabel="CigarreteCount">
-                                <rect key="frame" x="111" y="610" width="30" height="33"/>
-                                <color key="backgroundColor" red="0.45882352941176469" green="0.7686274509803922" blue="0.47843137254901963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
-                                <state key="normal" title="0">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEE-vS-CDj" userLabel="BeerPrice">
-                                <rect key="frame" x="251" y="27" width="66" height="33"/>
-                                <color key="backgroundColor" red="0.45882352939999999" green="0.76862745099999996" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
-                                <state key="normal" title="10 €/$">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ATZ-Va-ksd" firstAttribute="top" secondItem="Byt-LU-Jp8" secondAttribute="bottom" constant="40" id="2mW-fg-Eue"/>
-                            <constraint firstItem="Byt-LU-Jp8" firstAttribute="top" secondItem="FWz-gU-odt" secondAttribute="bottom" constant="40" id="3oA-Ag-RZw"/>
-                            <constraint firstItem="7lv-oL-e9e" firstAttribute="top" secondItem="FWz-gU-odt" secondAttribute="bottom" constant="-10" id="6re-kl-Wmg"/>
-                            <constraint firstItem="hn3-8Y-63N" firstAttribute="leading" secondItem="Pwi-HY-KaU" secondAttribute="trailing" constant="2" id="Fip-xR-9xG"/>
-                            <constraint firstItem="ATZ-Va-ksd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="J6N-yH-AC8"/>
-                            <constraint firstItem="iEE-vS-CDj" firstAttribute="bottom" secondItem="FWz-gU-odt" secondAttribute="top" constant="10" id="Npd-yc-9Xw"/>
-                            <constraint firstItem="Oac-q9-iwL" firstAttribute="top" secondItem="Byt-LU-Jp8" secondAttribute="bottom" constant="-10" id="R9c-b3-z1E"/>
-                            <constraint firstItem="FWz-gU-odt" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bkV-eH-jJ3"/>
-                            <constraint firstItem="Pwi-HY-KaU" firstAttribute="top" secondItem="hn3-8Y-63N" secondAttribute="bottom" constant="-10" id="c3d-I1-ris"/>
-                            <constraint firstItem="FWz-gU-odt" firstAttribute="trailing" secondItem="iEE-vS-CDj" secondAttribute="leading" constant="20" id="g4G-IL-8yL"/>
-                            <constraint firstItem="Byt-LU-Jp8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hSK-jc-Qa5"/>
-                            <constraint firstItem="ATZ-Va-ksd" firstAttribute="leading" secondItem="BaZ-AN-viO" secondAttribute="trailing" id="lrd-gg-I2P"/>
-                            <constraint firstItem="hn3-8Y-63N" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="m1A-6Q-O9O"/>
-                            <constraint firstItem="Byt-LU-Jp8" firstAttribute="leading" secondItem="Oac-q9-iwL" secondAttribute="trailing" id="m2B-uL-3IK"/>
-                            <constraint firstItem="BaZ-AN-viO" firstAttribute="top" secondItem="ATZ-Va-ksd" secondAttribute="bottom" constant="-10" id="s9t-fp-KPv"/>
-                            <constraint firstItem="FWz-gU-odt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="twc-Pt-2ZX"/>
-                            <constraint firstItem="FWz-gU-odt" firstAttribute="leading" secondItem="7lv-oL-e9e" secondAttribute="trailing" constant="-3" id="uTd-iy-aJL"/>
-                            <constraint firstItem="hn3-8Y-63N" firstAttribute="top" secondItem="ATZ-Va-ksd" secondAttribute="bottom" constant="40" id="yDc-QB-qWR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="syj-Sl-Osm" secondAttribute="trailing" id="2TW-8J-3rf"/>
+                            <constraint firstItem="syj-Sl-Osm" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="PM7-UF-5ib"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="syj-Sl-Osm" secondAttribute="bottom" constant="50" id="Xoh-2w-yji"/>
+                            <constraint firstItem="syj-Sl-Osm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="YaE-yA-msA"/>
+                            <constraint firstItem="syj-Sl-Osm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pwK-6U-iFg"/>
+                            <constraint firstItem="syj-Sl-Osm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rI6-RS-XaI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -148,6 +176,7 @@
                     <connections>
                         <outlet property="beerCount" destination="7lv-oL-e9e" id="O0D-TN-w6t"/>
                         <outlet property="cigarretesCount" destination="Pwi-HY-KaU" id="FyZ-cE-lsN"/>
+                        <outlet property="scrollView" destination="syj-Sl-Osm" id="CeT-mT-64Z"/>
                         <outlet property="shotsCount" destination="BaZ-AN-viO" id="60D-fd-KYM"/>
                         <outlet property="wineCount" destination="Oac-q9-iwL" id="a06-IK-BKq"/>
                     </connections>

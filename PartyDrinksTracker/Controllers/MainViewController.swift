@@ -20,6 +20,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var wineCount: UIButton!
     @IBOutlet weak var shotsCount: UIButton!
     @IBOutlet weak var cigarretesCount: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     required init?(coder aDecoder: NSCoder) {
         self.context = DrinksDatabaseContext()
@@ -60,6 +61,9 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
+        self.scrollView.isDirectionalLockEnabled = true
+        //CGSizeMake(self.view.frame.width, self.view.frame.height+100)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
