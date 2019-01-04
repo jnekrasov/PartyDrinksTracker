@@ -15,7 +15,6 @@ class MainViewController: UIViewController {
     private let drinksRepository: DrinksRepository!
     private let cigarretesRepository: CigarretesRepository!
     
-    
     @IBOutlet weak var beerCount: UIButton!
     @IBOutlet weak var wineCount: UIButton!
     @IBOutlet weak var shotsCount: UIButton!
@@ -66,7 +65,6 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
         self.scrollView.isDirectionalLockEnabled = true
-        //CGSizeMake(self.view.frame.width, self.view.frame.height+100)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

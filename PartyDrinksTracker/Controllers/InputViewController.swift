@@ -41,7 +41,11 @@ class InputViewController: UIViewController {
         }
         
         drinkCapacitySelector.selectedSegmentIndex
-            = UserDefaultsRepository.GetDrinkTypeCapacityDefaultIndexFor(drinkType: currentDrinkType!)
+            = UserDefaultsRepository.GetDrinkTypeCapacityDefaultIndexFor(drinkType: currentDrinkType!) ?? 0
+        
+        if let defaultDrinkPrice = UserDefaultsRepository.GetDrinkTypeDefaultPrice(forDrinkType: currentDrinkType!) {
+            currentPriceInput.text = String(format: "%.1f", defaultDrinkPrice)
+        }
     }
     
     override func viewDidLoad() {
@@ -54,13 +58,16 @@ class InputViewController: UIViewController {
     
     @IBAction func OnDrinkAdded(_ sender: Any) {
         do {
-            currentDrink?.price = Double(currentPriceInput.text ?? "0")
-            currentDrink?.capacity = currentCapacities![drinkCapacitySelector.selectedSegmentIndex]
+            currentDrink!.price = Double(currentPriceInput.text ?? "0")
+            currentDrink!.capacity = currentCapacities![drinkCapacitySelector.selectedSegmentIndex]
             try drinksRepository.Add(drink: currentDrink)
             context.SaveChanges()
             UserDefaultsRepository.SetDrinkTypeCapacityDefaultIndexFor(
                 drinkType: currentDrinkType!,
                 index: drinkCapacitySelector.selectedSegmentIndex)
+            UserDefaultsRepository.SetDrinkTypeDefaultPrice(
+                forDrinkType: currentDrinkType,
+                price: currentDrink!.price)
         } catch {
             fatalError("Cannot save your selected drink")
         }

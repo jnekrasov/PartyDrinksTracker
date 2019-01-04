@@ -9,6 +9,11 @@
 import Foundation
 
 class UserDefaultsRepository {
+    private struct UserDrinkDefaults: Codable {
+        var DefaultCapacityIndex: Int?
+        var DefaultDrinkPrice: Double?
+    }
+    
     private static let isPrePopullatedParameterName = "isPrePopullated"
     private static let defaults = UserDefaults.standard
     
@@ -21,11 +26,44 @@ class UserDefaultsRepository {
         }
     }
     
-    public static func SetDrinkTypeCapacityDefaultIndexFor(drinkType: DrinkType, index: Int) {
-        UserDefaultsRepository.defaults.set(index, forKey: String(describing: drinkType))
+    public static func SetDrinkTypeCapacityDefaultIndexFor(drinkType: DrinkType!, index: Int!) {
+        var userDrinkDefaults = GetUserDrinkDefaults(forDrinkType: drinkType)
+        userDrinkDefaults.DefaultCapacityIndex = index
+        SetUserDrinkDefaults(forDrinkType: drinkType, drinkDefaults: userDrinkDefaults)
     }
     
-    public static func GetDrinkTypeCapacityDefaultIndexFor(drinkType: DrinkType) -> Int {
-        return UserDefaultsRepository.defaults.integer(forKey: String(describing: drinkType))
+    public static func GetDrinkTypeCapacityDefaultIndexFor(drinkType: DrinkType) -> Int? {
+        let userDrinkDefaults = GetUserDrinkDefaults(forDrinkType: drinkType)
+        return userDrinkDefaults.DefaultCapacityIndex
+    }
+    
+    public static func SetDrinkTypeDefaultPrice(forDrinkType: DrinkType!, price: Double!) {
+        var userDrinkDefaults = GetUserDrinkDefaults(forDrinkType: forDrinkType)
+        userDrinkDefaults.DefaultDrinkPrice = price
+        SetUserDrinkDefaults(forDrinkType: forDrinkType, drinkDefaults: userDrinkDefaults)
+    }
+    
+    public static func GetDrinkTypeDefaultPrice(forDrinkType: DrinkType!) -> Double? {
+        let userDrinkDefaults = GetUserDrinkDefaults(forDrinkType: forDrinkType)
+        return userDrinkDefaults.DefaultDrinkPrice
+    }
+    
+    private static func SetUserDrinkDefaults(forDrinkType: DrinkType!, drinkDefaults: UserDrinkDefaults!) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(drinkDefaults) {
+            UserDefaultsRepository.defaults.set(encoded, forKey: String(describing: forDrinkType))
+        }
+    }
+    
+    private static func GetUserDrinkDefaults(forDrinkType: DrinkType!) -> UserDrinkDefaults {
+        var loadedDefaults: UserDrinkDefaults?
+        
+        if let userDrinkDefaults
+            = UserDefaultsRepository.defaults.object(forKey: String(describing: forDrinkType)) as? Data {
+            let decoder = JSONDecoder()
+            loadedDefaults = try? decoder.decode(UserDrinkDefaults.self, from: userDrinkDefaults)
+        }
+        
+        return loadedDefaults ?? UserDrinkDefaults()
     }
 }
