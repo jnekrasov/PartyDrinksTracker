@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InputViewController: UIViewController {
+class DrinkInputViewController: UIViewController {
     private var drinkTypesCapacities: [DrinkType: [DrinkCapacity]]?
     private var currentDrinkType: DrinkType?
     private var currentDrink: Drink?

@@ -68,7 +68,7 @@ class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let controller = segue.destination as! InputViewController
+        let controller = segue.destination as! DrinkInputViewController
         let sequeIdentifier = segue.identifier
         let creatableDrinkType = DrinksHelperFactory.GetDrinkTypeFrom(segueIdentifier: sequeIdentifier)
         

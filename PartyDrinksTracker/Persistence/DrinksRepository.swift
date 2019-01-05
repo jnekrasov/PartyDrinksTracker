@@ -38,6 +38,7 @@ class DrinksRepository: IDrinksRepository {
             let drink = Drink(type: DrinkType(rawValue: entity.type!.id))
             drink.created = entity.created
             drink.price = entity.price
+            drink.capacity = DrinkCapacity(rawValue: entity.capacity!.id)
             drink.id = entity.id
             return drink
         })

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k7A-Zc-EsW">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,103 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="ifK-2d-Wms">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xyy-bm-51s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController id="k7A-Zc-EsW" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2oK-A3-Fre">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="lOi-Lg-eaL"/>
+                        <segue destination="9Du-Se-JzV" kind="relationship" relationship="viewControllers" id="bz3-QW-w7G"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="-70" y="495"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="Liw-Vv-5rs">
+            <objects>
+                <tableViewController id="9Du-Se-JzV" customClass="DrinksHistoryViewController" customModule="PartyDrinksTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wze-WY-xRS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="drinkViewCell" rowHeight="94" id="8ip-en-VBa" customClass="DrinkCellViewModel" customModule="PartyDrinksTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="94"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8ip-en-VBa" id="iDh-ep-htI">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="93.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Beer" translatesAutoresizingMaskIntoConstraints="NO" id="WhP-vO-yOi" userLabel="Thumbnail">
+                                            <rect key="frame" x="20" y="12" width="83" height="67"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="83" id="Am9-Yf-rMR"/>
+                                                <constraint firstAttribute="height" constant="67" id="pkQ-DM-jde"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottle of wine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBu-7h-NNt" userLabel="Drink">
+                                            <rect key="frame" x="110.99999999999999" y="20" width="133.66666666666663" height="20.666666666666671"/>
+                                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20€$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yq3-Yb-oYK" userLabel="Price">
+                                            <rect key="frame" x="344.66666666666669" y="19" width="51.333333333333314" height="22"/>
+                                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="18"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="on Wednesday (12.04.2018)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHC-ND-uSD" userLabel="Date">
+                                            <rect key="frame" x="111" y="50.666666666666664" width="214" height="20.999999999999993"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="HBu-7h-NNt" firstAttribute="top" secondItem="iDh-ep-htI" secondAttribute="top" constant="20" id="2gP-90-fSS"/>
+                                        <constraint firstItem="cHC-ND-uSD" firstAttribute="leading" secondItem="WhP-vO-yOi" secondAttribute="trailing" constant="8" id="5pu-eK-fQp"/>
+                                        <constraint firstItem="HBu-7h-NNt" firstAttribute="leading" secondItem="WhP-vO-yOi" secondAttribute="trailing" constant="8" id="8Zs-Rx-nBg"/>
+                                        <constraint firstItem="WhP-vO-yOi" firstAttribute="top" secondItem="iDh-ep-htI" secondAttribute="top" constant="12" id="93T-8Y-Apt"/>
+                                        <constraint firstItem="cHC-ND-uSD" firstAttribute="top" secondItem="HBu-7h-NNt" secondAttribute="bottom" constant="10" id="LBW-7l-dk0"/>
+                                        <constraint firstAttribute="trailing" secondItem="Yq3-Yb-oYK" secondAttribute="trailing" constant="18.000000000000057" id="PWS-Kf-oho"/>
+                                        <constraint firstItem="Yq3-Yb-oYK" firstAttribute="top" secondItem="iDh-ep-htI" secondAttribute="top" constant="19" id="QEk-B9-6wg"/>
+                                        <constraint firstItem="WhP-vO-yOi" firstAttribute="leading" secondItem="iDh-ep-htI" secondAttribute="leading" constant="20" id="oVj-mk-Fxx"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="drinkDateLabel" destination="cHC-ND-uSD" id="fux-zP-sTu"/>
+                                    <outlet property="drinkPriceLabel" destination="Yq3-Yb-oYK" id="b9V-9U-xtx"/>
+                                    <outlet property="drinkThumbnailView" destination="WhP-vO-yOi" id="vAh-VQ-UuO"/>
+                                    <outlet property="drinkTitleLabel" destination="HBu-7h-NNt" id="EIr-U1-aJo"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9Du-Se-JzV" id="DoR-Jb-GiN"/>
+                            <outlet property="delegate" destination="9Du-Se-JzV" id="UXN-OI-rHN"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="History" image="History" id="EEq-zO-jsA"/>
+                    <connections>
+                        <outlet property="drinksViewTable" destination="wze-WY-xRS" id="Vqf-SH-ZwS"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jz5-rR-enV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="823.36956521739137"/>
+        </scene>
+        <!--Drinks-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="PartyDrinksTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -166,17 +262,8 @@
                                     <constraint firstItem="GZ0-DT-aqC" firstAttribute="top" secondItem="ATZ-Va-ksd" secondAttribute="bottom" constant="-10" id="qHU-Lc-Y50"/>
                                 </constraints>
                             </scrollView>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vDb-Db-9zC">
-                                <rect key="frame" x="0.0" y="687" width="414" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem systemItem="favorites" id="vMH-sD-jHV"/>
-                                    <tabBarItem systemItem="more" id="euD-FR-Fgr"/>
-                                </items>
-                            </tabBar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="syj-Sl-Osm" secondAttribute="trailing" id="2TW-8J-3rf"/>
                             <constraint firstItem="syj-Sl-Osm" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="PM7-UF-5ib"/>
@@ -187,6 +274,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Drinks" image="TabBarBeer" id="J8K-q2-1N0"/>
                     <navigationItem key="navigationItem" id="QvL-EB-Day"/>
                     <connections>
                         <outlet property="beerCount" destination="7lv-oL-e9e" id="O0D-TN-w6t"/>
@@ -203,10 +291,10 @@
             </objects>
             <point key="canvasLocation" x="1043.4782608695652" y="132.88043478260872"/>
         </scene>
-        <!--Input View Controller-->
+        <!--Drink Input View Controller-->
         <scene sceneID="3Wd-G2-Rs7">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="7FU-iF-2ET" customClass="InputViewController" customModule="PartyDrinksTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="7FU-iF-2ET" customClass="DrinkInputViewController" customModule="PartyDrinksTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nnS-oA-4BB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -316,7 +404,9 @@
     <resources>
         <image name="Beer" width="128" height="109"/>
         <image name="Cigarrete" width="128" height="85"/>
+        <image name="History" width="18" height="21"/>
         <image name="Shots" width="124" height="128"/>
+        <image name="TabBarBeer" width="24" height="21"/>
         <image name="Wine" width="92" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>

@@ -16,11 +16,11 @@ class DrinksHelperFactory {
         let count = drinksCount ?? 0
         
         switch drinkType {
-            case DrinkType.Beer:
+            case .Beer:
                 title = "\(count) "
                     + (count > 1 ? "beers" : "beer")
                     + " for today! Planning for more? :)"
-            case DrinkType.Wine:
+            case .Wine:
                 title = "\(count) "
                     + (count > 1 ? "glasses" : "glass")
                     + " of wine for today! Planning for more? :)"
@@ -33,14 +33,40 @@ class DrinksHelperFactory {
         return title.uppercased()
     }
     
+    public static func GetDrinkTypeRepresentation(_ drinkType: DrinkType) -> String {
+        switch drinkType {
+            case .Beer:
+                return "Beer"
+            case .Wine:
+                return "Wine"
+            default:
+                return "Shot"
+        }
+    }
+    
+    public static func GetDrinkCapacityRepresentation(_ drinkCapacity: DrinkCapacity) -> String {
+        switch drinkCapacity {
+        case .Small:
+            return "Small"
+        case .Big:
+            return "Big"
+        case .Bottle:
+            return "Bottle :)"
+        case .Glass:
+            return "Glass"
+        default:
+            return "Shot"
+        }
+    }
+    
     public static func GetDrinkTypeFrom(segueIdentifier: String!) -> DrinkType {
         switch segueIdentifier {
         case "beerSegue":
-            return DrinkType.Beer
+            return .Beer
         case "shotsSegue":
-            return DrinkType.Shots
+            return .Shots
         default:
-            return DrinkType.Wine
+            return .Wine
         }
     }
 }
