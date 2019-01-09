@@ -11,7 +11,7 @@ import Foundation
 class UserDefaultsRepository {
     private struct UserDrinkDefaults: Codable {
         var DefaultCapacityIndex: Int?
-        var DefaultDrinkPrice: Double?
+        var DefaultDrinkPrice: Decimal?
     }
     
     private static let isPrePopullatedParameterName = "isPrePopullated"
@@ -37,13 +37,13 @@ class UserDefaultsRepository {
         return userDrinkDefaults.DefaultCapacityIndex
     }
     
-    public static func SetDrinkTypeDefaultPrice(forDrinkType: DrinkType!, price: Double!) {
+    public static func SetDrinkTypeDefaultPrice(forDrinkType: DrinkType!, price: Decimal!) {
         var userDrinkDefaults = GetUserDrinkDefaults(forDrinkType: forDrinkType)
         userDrinkDefaults.DefaultDrinkPrice = price
         SetUserDrinkDefaults(forDrinkType: forDrinkType, drinkDefaults: userDrinkDefaults)
     }
     
-    public static func GetDrinkTypeDefaultPrice(forDrinkType: DrinkType!) -> Double? {
+    public static func GetDrinkTypeDefaultPrice(forDrinkType: DrinkType!) -> Decimal? {
         let userDrinkDefaults = GetUserDrinkDefaults(forDrinkType: forDrinkType)
         return userDrinkDefaults.DefaultDrinkPrice
     }

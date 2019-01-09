@@ -44,7 +44,7 @@ class DrinkInputViewController: UIViewController {
             = UserDefaultsRepository.GetDrinkTypeCapacityDefaultIndexFor(drinkType: currentDrinkType!) ?? 0
         
         if let defaultDrinkPrice = UserDefaultsRepository.GetDrinkTypeDefaultPrice(forDrinkType: currentDrinkType!) {
-            currentPriceInput.text = String(format: "%.1f", defaultDrinkPrice)
+            currentPriceInput.text = defaultDrinkPrice.formattedValue
         }
     }
     
@@ -58,7 +58,7 @@ class DrinkInputViewController: UIViewController {
     
     @IBAction func OnDrinkAdded(_ sender: Any) {
         do {
-            currentDrink!.price = Double(currentPriceInput.text ?? "0")
+            currentDrink!.price =  DrinkExtensions.GetDrinkPrice(from: currentPriceInput.text)
             currentDrink!.capacity = currentCapacities![drinkCapacitySelector.selectedSegmentIndex]
             try drinksRepository.Add(drink: currentDrink)
             context.SaveChanges()

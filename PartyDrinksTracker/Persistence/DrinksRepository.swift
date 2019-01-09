@@ -21,7 +21,7 @@ class DrinksRepository: IDrinksRepository {
     public func Add(drink: Drink!) throws {
         let drinkEntity = DrinkEntity(context: self.context)
         drinkEntity.id = drink.id
-        drinkEntity.price = drink.price
+        drinkEntity.price = NSDecimalNumber(decimal: drink.price)
         drinkEntity.created = drink.created
         drinkEntity.type = try GetDrinkTypeFor(drink)
         drinkEntity.capacity = try GetDrinkCapacity(drink)
@@ -37,7 +37,7 @@ class DrinksRepository: IDrinksRepository {
         return drinkEntities.map({ (entity: DrinkEntity) -> Drink in
             let drink = Drink(type: DrinkType(rawValue: entity.type!.id))
             drink.created = entity.created
-            drink.price = entity.price
+            drink.price = entity.price?.decimalValue
             drink.capacity = DrinkCapacity(rawValue: entity.capacity!.id)
             drink.id = entity.id
             return drink

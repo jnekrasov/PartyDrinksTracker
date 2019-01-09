@@ -8,7 +8,19 @@
 
 import Foundation
 
-class DrinksHelperFactory {
+extension Decimal {
+    var formattedValue: String? {
+        let formatter = NumberFormatter()
+        formatter.generatesDecimalNumbers = true
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+        formatter.numberStyle = .currency
+        formatter.locale = Locale.current
+        return formatter.string(from: self as NSDecimalNumber)
+    }
+}
+
+class DrinkExtensions {
     public static func GetDrinkTitleFrom(segueIdentifier: String!, drinksCount: Int!) -> String! {
         let drinkType = GetDrinkTypeFrom(segueIdentifier: segueIdentifier)
         
@@ -42,6 +54,17 @@ class DrinksHelperFactory {
             default:
                 return "Shot"
         }
+    }
+    
+    public static func GetDrinkPrice(from price: String!) -> Decimal {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.decimal
+        
+        if let number = formatter.number(from: price) {
+            return number.decimalValue
+        }
+        
+        return 0.0
     }
     
     public static func GetDrinkCapacityRepresentation(_ drinkCapacity: DrinkCapacity) -> String {

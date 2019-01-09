@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DailyDrinksHeaderViewModel" customModule="PartyDrinksTracker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On Wednesday (12.04)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Psd-yD-PIG">
+                    <rect key="frame" x="19" y="22.5" width="222" height="21"/>
+                    <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2v-lk-J3O">
+                    <rect key="frame" x="278.5" y="22.5" width="24.5" height="21"/>
+                    <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20€$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWm-lP-kua">
+                    <rect key="frame" x="352.5" y="22.5" width="48.5" height="21"/>
+                    <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cigarrete" translatesAutoresizingMaskIntoConstraints="NO" id="4tq-y8-B5y">
+                    <rect key="frame" x="306" y="19" width="25" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="DHq-75-mh6"/>
+                        <constraint firstAttribute="height" constant="21" id="DY0-zK-tzP"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="cWm-lP-kua" secondAttribute="trailing" constant="13" id="F35-Dc-v23"/>
+                <constraint firstItem="Psd-yD-PIG" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="I62-iz-lqR"/>
+                <constraint firstItem="cWm-lP-kua" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="Nqg-jN-aNf"/>
+                <constraint firstItem="4tq-y8-B5y" firstAttribute="leading" secondItem="M2v-lk-J3O" secondAttribute="trailing" constant="3" id="Yhf-Yb-EcW"/>
+                <constraint firstItem="cWm-lP-kua" firstAttribute="leading" secondItem="4tq-y8-B5y" secondAttribute="trailing" constant="21.5" id="Zqq-ax-wZ5"/>
+                <constraint firstItem="M2v-lk-J3O" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="b9D-Qa-uGC"/>
+                <constraint firstItem="4tq-y8-B5y" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="19" id="rUD-L3-ElZ"/>
+                <constraint firstItem="Psd-yD-PIG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="19" id="vRY-GZ-Ow4"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="cigarretesCount" destination="M2v-lk-J3O" id="hLL-b3-9C7"/>
+                <outlet property="dailyDrinksDateTitle" destination="Psd-yD-PIG" id="XAc-mq-wa1"/>
+                <outlet property="dailyDrinksTotalPrice" destination="cWm-lP-kua" id="p2m-JT-Kjx"/>
+            </connections>
+            <point key="canvasLocation" x="35.200000000000003" y="35.082458770614693"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Cigarrete" width="96" height="64"/>
+    </resources>
+</document>

@@ -70,11 +70,11 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let controller = segue.destination as! DrinkInputViewController
         let sequeIdentifier = segue.identifier
-        let creatableDrinkType = DrinksHelperFactory.GetDrinkTypeFrom(segueIdentifier: sequeIdentifier)
+        let creatableDrinkType = DrinkExtensions.GetDrinkTypeFrom(segueIdentifier: sequeIdentifier)
         
         controller.updateCurrentDrinkType(creatableDrinkType)
         controller.updateTitle(
-            title: DrinksHelperFactory.GetDrinkTitleFrom(
+            title: DrinkExtensions.GetDrinkTitleFrom(
                 segueIdentifier: sequeIdentifier,
                 drinksCount: drinks[creatableDrinkType]?.count))
     }
@@ -83,21 +83,21 @@ class MainViewController: UIViewController {
         if let beers = drinks[DrinkType.Beer] {
             beerCount.setTitle(String(beers.count), for: .normal)
             beerCount.backgroundColor = getCountColor(beers.count)
-            beerPrice.setTitle(String(format: "%.1f€$", beers.reduce(0, {$0 + $1.price})), for: .normal)
+            beerPrice.setTitle(beers.reduce(0, {$0 + $1.price}).formattedValue, for: .normal)
             beerPrice.backgroundColor = getCountColor(beers.count)
         }
         
         if let wines = drinks[DrinkType.Wine] {
             wineCount.setTitle(String(wines.count), for: .normal)
             wineCount.backgroundColor = getCountColor(wines.count)
-            winePrice.setTitle(String(format: "%.1f€$", wines.reduce(0, {$0 + $1.price})), for: .normal)
+            winePrice.setTitle(wines.reduce(0, {$0 + $1.price}).formattedValue, for: .normal)
             winePrice.backgroundColor = getCountColor(wines.count)
         }
         
         if let shots = drinks[DrinkType.Shots] {
             shotsCount.setTitle(String(shots.count), for: .normal)
             shotsCount.backgroundColor = getCountColor(shots.count)
-            shotsPrice.setTitle(String(format: "%.1f€$", shots.reduce(0, {$0 + $1.price})), for: .normal)
+            shotsPrice.setTitle(shots.reduce(0, {$0 + $1.price}).formattedValue, for: .normal)
             shotsPrice.backgroundColor = getCountColor(shots.count)
         }
         
@@ -108,11 +108,11 @@ class MainViewController: UIViewController {
     private func getCountColor(_ count: Int) -> UIColor {
         switch count {
             case _ where count <= 3:
-                return UIColor(red:0.00, green:0.80, blue:0.40, alpha:1.0)
+                return UIColor(red:0.30, green:0.85, blue:0.39, alpha:1.0)
             case _ where count > 3 && count <= 5:
                 return UIColor(red:1.00, green:0.80, blue:0.00, alpha:1.0)
             default:
-                return UIColor(red:1.00, green:0.30, blue:0.30, alpha:1.0)
+                return UIColor(red:1.00, green:0.23, blue:0.19, alpha:1.0)
         }
     }
 }

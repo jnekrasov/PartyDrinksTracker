@@ -8,11 +8,9 @@
 
 import Foundation
 
-class Drink {
+class Drink: Auditable {
     private(set) var type: DrinkType!
-    var created: Date! = Date()
-    var id: UUID! = UUID()
-    var price: Double!
+    var price: Decimal!
     var capacity: DrinkCapacity!
     
     init(type: DrinkType!) {

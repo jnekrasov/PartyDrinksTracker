@@ -13,7 +13,7 @@
     <entity name="DrinkEntity" representedClassName="DrinkEntity" syncable="YES" codeGenerationType="class">
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
         <relationship name="capacity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DrinkCapacityEntity" inverseName="drinks" inverseEntity="DrinkCapacityEntity" syncable="YES"/>
         <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DrinkTypeEntity" inverseName="drinks" inverseEntity="DrinkTypeEntity" syncable="YES"/>
         <uniquenessConstraints>
