@@ -39,6 +39,10 @@ class MainViewController: UIViewController {
             try cigarretesRepository.Add(Cigarrete())
             context.SaveChanges()
             updateCounts()
+            if let tabController = self.tabBarController,
+                let historyController = tabController.viewControllers?[1] as? DrinksHistoryViewController {
+                historyController.updateCigarretesHistory(with: created)
+            }
         } catch {
             fatalError("Cannot add newly smoked cigarrete :)")
         }
@@ -46,25 +50,25 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        do {
-            let interval = TimeInterval(8 * 60 * 60)
-            drinks = Dictionary(
-                grouping: try drinksRepository.GetAllForInterval(interval),
-                by: {$0.type})
-            
-            cigarretes = try cigarretesRepository.GetAllForInterval(interval)
-        } catch {
-            fatalError("Cannot get persisted drinks or cigarretes")
-        }
-        
-        updateCounts()
         super.viewWillAppear(animated)
+        self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
+        self.scrollView.isDirectionalLockEnabled = true
+        updateCounts()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
-        self.scrollView.isDirectionalLockEnabled = true
+        resetPriceColorViews()
+        do {
+            let currentPartyStartedDate = UserDefaultsRepository.PartyStartedDate
+            drinks = Dictionary(
+                grouping: try drinksRepository.GetAllStarting(from: currentPartyStartedDate),
+                by: {$0.type})
+            
+            cigarretes = try cigarretesRepository.GetAllStarting(from: currentPartyStartedDate)
+        } catch {
+            fatalError("Cannot get persisted drinks or cigarretes")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -105,6 +109,20 @@ class MainViewController: UIViewController {
         cigarretesCount.backgroundColor = getCountColor(cigarretes.count)
     }
     
+    private func resetPriceColorViews() {
+        let initialPrice = Decimal(0).formattedCurrencyValue
+        beerPrice.backgroundColor = getCountColor(0)
+        beerCount.backgroundColor = getCountColor(0)
+        beerPrice.setTitle(initialPrice, for: .normal)
+        winePrice.backgroundColor = getCountColor(0)
+        wineCount.backgroundColor = getCountColor(0)
+        winePrice.setTitle(initialPrice, for: .normal)
+        shotsPrice.backgroundColor = getCountColor(0)
+        shotsCount.backgroundColor = getCountColor(0)
+        shotsPrice.setTitle(initialPrice, for: .normal)
+        cigarretesCount.backgroundColor = getCountColor(0)
+    }
+    
     private func getCountColor(_ count: Int) -> UIColor {
         switch count {
             case _ where count <= 3:
@@ -123,6 +141,11 @@ class MainViewController: UIViewController {
         }
         else {
             self.drinks[drink.type] = [drink]
+        }
+        
+        if let tabController = self.tabBarController,
+            let historyController = tabController.viewControllers?[1] as? DrinksHistoryViewController {
+            historyController.updateDrinksHistory(with: drink)
         }
     }
     

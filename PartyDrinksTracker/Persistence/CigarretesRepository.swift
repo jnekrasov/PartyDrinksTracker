@@ -23,13 +23,26 @@ class CigarretesRepository {
         drinkEntity.created = cigarrete.created
     }
     
-    public func GetAllForInterval(_ timeInterval: TimeInterval) throws -> [Cigarrete] {
-        let untilDate = NSDate(timeIntervalSinceNow: timeInterval)
+    public func GetAllStarting(from partyStartedDate: Date!) throws -> [Cigarrete] {
+        let partyStarted = NSDate(timeIntervalSince1970: partyStartedDate.timeIntervalSince1970)
+        let partyEnded = partyStarted.addingTimeInterval(TimeInterval(10 * 60 * 60))
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: CigarretesRepository.cigarreteEntityCollectionName)
-        fetchRequest.predicate = NSPredicate(format: "created <= %@", untilDate)
+        fetchRequest.predicate = NSPredicate(format: "created >= %@ && created <= %@", partyStarted, partyEnded)
         
         let cigarreteEntities = try self.context.fetch(fetchRequest) as! [CigarreteEntity]
         
+        return ToDomain(cigarreteEntities)
+    }
+    
+    public func GetAll() throws -> [Cigarrete] {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: CigarretesRepository.cigarreteEntityCollectionName)
+        
+        let cigarreteEntities = try self.context.fetch(fetchRequest) as! [CigarreteEntity]
+        
+        return ToDomain(cigarreteEntities)
+    }
+    
+    private func ToDomain(_ cigarreteEntities: [CigarreteEntity]) -> [Cigarrete] {
         return cigarreteEntities.map({ (entity: CigarreteEntity) -> Cigarrete in
             let cigarrete = Cigarrete()
             cigarrete.id = entity.id

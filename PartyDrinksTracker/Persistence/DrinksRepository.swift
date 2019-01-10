@@ -27,13 +27,26 @@ class DrinksRepository: IDrinksRepository {
         drinkEntity.capacity = try GetDrinkCapacity(drink)
     }
     
-    public func GetAllForInterval(_ timeInterval: TimeInterval) throws -> [Drink] {
-        let untilDate = NSDate(timeIntervalSinceNow: timeInterval)
+    public func GetAllStarting(from partyStartedDate: Date!) throws -> [Drink] {
+        let partyStarted = NSDate(timeIntervalSince1970: partyStartedDate.timeIntervalSince1970)
+        let partyEnded = partyStarted.addingTimeInterval(TimeInterval(10 * 60 * 60))
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: self.drinkEntityCollectionName)
-        fetchRequest.predicate = NSPredicate(format: "created <= %@", untilDate)
+        fetchRequest.predicate = NSPredicate(format: "created >= %@ && created <= %@", partyStarted, partyEnded)
         
         let drinkEntities = try self.context.fetch(fetchRequest) as! [DrinkEntity]
         
+        return ToDomain(drinkEntities)
+    }
+    
+    public func GetAll() throws -> [Drink] {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: self.drinkEntityCollectionName)
+        
+        let drinkEntities = try self.context.fetch(fetchRequest) as! [DrinkEntity]
+        
+        return ToDomain(drinkEntities)
+    }
+    
+    private func ToDomain(_ drinkEntities: [DrinkEntity]) -> [Drink] {
         return drinkEntities.map({ (entity: DrinkEntity) -> Drink in
             let drink = Drink(type: DrinkType(rawValue: entity.type!.id))
             drink.created = entity.created

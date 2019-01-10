@@ -68,7 +68,7 @@ class DrinksHistoryViewController: UIViewController, UITableViewDelegate, UITabl
         
         var section = dailyDrinks[indexPath.section]
         let currentDrink = section.drinks[indexPath.row]
-        drinkCellViewModel.drinkDateLabel?.text = GetDrinkDatePresentation(currentDrink.created)
+        drinkCellViewModel.drinkDateLabel?.text = GetDrinkDateTimePresentation(currentDrink.created)
         drinkCellViewModel.drinkTitleLabel?.text = GetDrinkTitleRepresentation(currentDrink)
         drinkCellViewModel.drinkThumbnailView.image = GetDrinkImageRepresentation(currentDrink)
         drinkCellViewModel.drinkPriceLabel?.text = currentDrink.price.formattedCurrencyValue
@@ -89,41 +89,80 @@ class DrinksHistoryViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var drinksViewTable: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
+        drinksViewTable.separatorStyle = .none
+        super.viewWillAppear(animated)
+        self.drinksViewTable.rowHeight = 77
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let nib = UINib(nibName: "DailyDrinksHeaderCellView", bundle: nil)
+        drinksViewTable.delegate = self
+        drinksViewTable.dataSource = self
+        drinksViewTable.register(nib, forHeaderFooterViewReuseIdentifier: "drinksHeaderViewCell")
+        drinksViewTable.reloadData()
+        
         do {
             drinksViewTable.reloadData()
-            let drinks = try drinksRepository.GetAllForInterval(TimeInterval(8 * 60 * 60))
-            let cigarretes = try cigarretesRepository.GetAllForInterval(TimeInterval(8 * 60 * 60))
+            let drinks = try drinksRepository.GetAll()
+            let cigarretes = try cigarretesRepository.GetAll()
             
             let groupedDrinks = GroupByDate(grouping: drinks)
             let groupedCigarretes = GroupByDate(grouping: cigarretes)
             
             self.dailyCigarretes = groupedCigarretes.map{
-                (key, values) in return DailyCigarretesViewModel(cigarretesDate: key, cigarretes: values)
-            }.sorted{$0 > $1}
+                (key, values) in return DailyCigarretesViewModel(
+                    cigarretesDate: key,
+                    cigarretes: values.sorted{$0.created > $1.created})
+                }.sorted{$0 > $1}
             self.dailyDrinks = groupedDrinks.map {
-                (key, values) in return DailyDrinksViewModel(drinksDate: key, drinks: values)
-            }.sorted{$0 > $1}
+                (key, values) in return DailyDrinksViewModel(
+                    drinksDate: key,
+                    drinks: values.sorted{$0.created > $1.created})
+                }.sorted{$0 > $1}
         } catch {
             fatalError("Cannot get drinks list to popullate")
         }
-
-        self.drinksViewTable.rowHeight = 77
-        super.viewWillAppear(animated)
     }
     
-    private func GroupByDate<T: Auditable>(grouping: [T]) -> Dictionary<Date, [T]> {
-        return Dictionary(grouping: grouping) { (item) -> Date in
-            let components = Calendar.current.dateComponents([.day, .month, .year], from: item.created)
-            return Calendar.current.date(from: components)!
+    public func updateDrinksHistory(with drink:Drink!) {
+        if (drinksViewTable == nil) {
+            return
         }
+        
+        if var dailyDrinkViewModel = self.dailyDrinks.first(where: {$0.drinksDate == GetGroupDate(for: drink)}) {
+            dailyDrinkViewModel.drinks.append(drink)
+            dailyDrinkViewModel.drinks = dailyDrinkViewModel.drinks.sorted{$0.created > $1.created}
+            let updatedIndex = self.dailyDrinks.firstIndex(of: dailyDrinkViewModel)!
+            self.dailyDrinks[updatedIndex] = dailyDrinkViewModel
+        }
+        else {
+            self.dailyDrinks.append(DailyDrinksViewModel(
+                drinksDate: GetGroupDate(for: drink),
+                drinks: [drink]))
+        }
+        
+        self.drinksViewTable.reloadData()
     }
     
-    override func viewDidLoad() {
-        let nib = UINib(nibName: "DailyDrinksHeaderCellView", bundle: nil)
-        //tableView.register(nib, forHeaderFooterViewReuseIdentifier: "drinksHeaderViewCell")
-        drinksViewTable.delegate = self
-        drinksViewTable.dataSource = self
-        drinksViewTable.register(nib, forHeaderFooterViewReuseIdentifier: "drinksHeaderViewCell")
+    public func updateCigarretesHistory(with cigarrete:Cigarrete!) {
+        if (drinksViewTable == nil) {
+            return
+        }
+        
+        if var dailyCigarreteViewModel = self.dailyCigarretes.first(where: {$0.cigarretesDate == GetGroupDate(for: cigarrete)}) {
+            dailyCigarreteViewModel.cigarretes.append(cigarrete)
+            dailyCigarreteViewModel.cigarretes = dailyCigarreteViewModel.cigarretes.sorted{$0.created > $1.created}
+            let updatedIndex = self.dailyCigarretes.firstIndex(of: dailyCigarreteViewModel)!
+            self.dailyCigarretes[updatedIndex] = dailyCigarreteViewModel
+        }
+        else {
+            self.dailyCigarretes.append(DailyCigarretesViewModel(
+                cigarretesDate: GetGroupDate(for: cigarrete),
+                cigarretes: [cigarrete]))
+        }
+        
+        drinksViewTable.reloadData()
     }
     
     private func GetDrinkImageRepresentation(_ drink: Drink!) -> UIImage {
@@ -148,20 +187,39 @@ class DrinksHistoryViewController: UIViewController, UITableViewDelegate, UITabl
                 return "\(capacity) of \(type)"
         default:
             if (drink.capacity == DrinkCapacity.Bottle) {
-                return "Uh \(capacity) of 'shots'"
+                return "Uuuuh shots"
             }
             
             return capacity
         }
-        
     }
     
     private func GetDrinkDatePresentation(_ drinkDate: Date!) -> String! {
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE (dd.MM)"
+        formatter.dateFormat = "'on' EEEE (dd.MM)"
         formatter.locale = Locale.current
         let dateRepresentation = formatter.string(from: drinkDate)
         
-        return "on \(dateRepresentation)"
+        return dateRepresentation
+    }
+    
+    private func GetDrinkDateTimePresentation(_ drinkDate: Date!) -> String! {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "'on' EEEE 'at' HH:mm"
+        formatter.locale = Locale.current
+        let dateRepresentation = formatter.string(from: drinkDate)
+        
+        return dateRepresentation
+    }
+    
+    private func GetGroupDate<T: Auditable>(for item: T) -> Date {
+        let components = Calendar.current.dateComponents([.day, .month, .year], from: item.created)
+        return Calendar.current.date(from: components)!
+    }
+    
+    private func GroupByDate<T: Auditable>(grouping: [T]) -> Dictionary<Date, [T]> {
+        return Dictionary(grouping: grouping) { (item) -> Date in
+            return GetGroupDate(for: item)
+        }
     }
 }

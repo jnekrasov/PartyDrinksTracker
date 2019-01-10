@@ -26,6 +26,22 @@ class UserDefaultsRepository {
         }
     }
     
+    private static let partyStartedDateParameterName = "partyStartedDate"
+    public static var PartyStartedDate: Date! {
+        var nextPartyDate = Date()
+        
+        if let previuosPartyStarted = UserDefaultsRepository.defaults.object(forKey: partyStartedDateParameterName) as? Date
+        {
+            nextPartyDate = previuosPartyStarted.addingTimeInterval(TimeInterval(10 * 60 * 60))
+            if nextPartyDate > Date() {
+                return previuosPartyStarted
+            }
+        }
+    
+        UserDefaultsRepository.defaults.set(nextPartyDate, forKey: partyStartedDateParameterName)
+        return nextPartyDate
+    }
+    
     public static func SetDrinkTypeCapacityDefaultIndexFor(drinkType: DrinkType!, index: Int!) {
         var userDrinkDefaults = GetUserDrinkDefaults(forDrinkType: drinkType)
         userDrinkDefaults.DefaultCapacityIndex = index
