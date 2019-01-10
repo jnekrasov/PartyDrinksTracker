@@ -52,7 +52,7 @@ class DrinksHistoryViewController: UIViewController, UITableViewDelegate, UITabl
         
         dailyDrinksHeaderViewModel.cigarretesCount?.text = String(sectionCigarretes!.count)
         dailyDrinksHeaderViewModel.dailyDrinksDateTitle?.text = GetDrinkDatePresentation(sectionDate)
-        dailyDrinksHeaderViewModel.dailyDrinksTotalPrice?.text = sectionDrinks!.reduce(0, {$0 + $1.price}).formattedValue
+        dailyDrinksHeaderViewModel.dailyDrinksTotalPrice?.text = sectionDrinks!.reduce(0, {$0 + $1.price}).formattedCurrencyValue
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor(red:0.83, green:0.84, blue:0.81, alpha:1.0)
@@ -71,7 +71,7 @@ class DrinksHistoryViewController: UIViewController, UITableViewDelegate, UITabl
         drinkCellViewModel.drinkDateLabel?.text = GetDrinkDatePresentation(currentDrink.created)
         drinkCellViewModel.drinkTitleLabel?.text = GetDrinkTitleRepresentation(currentDrink)
         drinkCellViewModel.drinkThumbnailView.image = GetDrinkImageRepresentation(currentDrink)
-        drinkCellViewModel.drinkPriceLabel?.text = currentDrink.price.formattedValue
+        drinkCellViewModel.drinkPriceLabel?.text = currentDrink.price.formattedCurrencyValue
         
         return drinkCellViewModel
     }
@@ -148,7 +148,7 @@ class DrinksHistoryViewController: UIViewController, UITableViewDelegate, UITabl
                 return "\(capacity) of \(type)"
         default:
             if (drink.capacity == DrinkCapacity.Bottle) {
-                return "Uuuuh \(capacity) of 'shots'"
+                return "Uh \(capacity) of 'shots'"
             }
             
             return capacity

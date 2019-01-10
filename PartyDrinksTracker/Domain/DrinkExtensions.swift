@@ -8,13 +8,23 @@
 
 import Foundation
 
-extension Decimal {
-    var formattedValue: String? {
+extension Decimal {    
+    var formattedCurrencyValue: String? {
         let formatter = NumberFormatter()
         formatter.generatesDecimalNumbers = true
         formatter.minimumFractionDigits = 2
         formatter.maximumFractionDigits = 2
         formatter.numberStyle = .currency
+        formatter.locale = Locale.current
+        return formatter.string(from: self as NSDecimalNumber)
+    }
+    
+    var formattedValue: String? {
+        let formatter = NumberFormatter()
+        formatter.generatesDecimalNumbers = true
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+        formatter.numberStyle = .decimal
         formatter.locale = Locale.current
         return formatter.string(from: self as NSDecimalNumber)
     }
@@ -58,7 +68,7 @@ class DrinkExtensions {
     
     public static func GetDrinkPrice(from price: String!) -> Decimal {
         let formatter = NumberFormatter()
-        formatter.numberStyle = NumberFormatter.Style.decimal
+        formatter.numberStyle = .decimal
         
         if let number = formatter.number(from: price) {
             return number.decimalValue

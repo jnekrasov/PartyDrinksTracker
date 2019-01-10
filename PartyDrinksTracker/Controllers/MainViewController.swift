@@ -83,21 +83,21 @@ class MainViewController: UIViewController {
         if let beers = drinks[DrinkType.Beer] {
             beerCount.setTitle(String(beers.count), for: .normal)
             beerCount.backgroundColor = getCountColor(beers.count)
-            beerPrice.setTitle(beers.reduce(0, {$0 + $1.price}).formattedValue, for: .normal)
+            beerPrice.setTitle(beers.reduce(0, {$0 + $1.price}).formattedCurrencyValue, for: .normal)
             beerPrice.backgroundColor = getCountColor(beers.count)
         }
         
         if let wines = drinks[DrinkType.Wine] {
             wineCount.setTitle(String(wines.count), for: .normal)
             wineCount.backgroundColor = getCountColor(wines.count)
-            winePrice.setTitle(wines.reduce(0, {$0 + $1.price}).formattedValue, for: .normal)
+            winePrice.setTitle(wines.reduce(0, {$0 + $1.price}).formattedCurrencyValue, for: .normal)
             winePrice.backgroundColor = getCountColor(wines.count)
         }
         
         if let shots = drinks[DrinkType.Shots] {
             shotsCount.setTitle(String(shots.count), for: .normal)
             shotsCount.backgroundColor = getCountColor(shots.count)
-            shotsPrice.setTitle(shots.reduce(0, {$0 + $1.price}).formattedValue, for: .normal)
+            shotsPrice.setTitle(shots.reduce(0, {$0 + $1.price}).formattedCurrencyValue, for: .normal)
             shotsPrice.backgroundColor = getCountColor(shots.count)
         }
         
@@ -113,6 +113,24 @@ class MainViewController: UIViewController {
                 return UIColor(red:1.00, green:0.80, blue:0.00, alpha:1.0)
             default:
                 return UIColor(red:1.00, green:0.23, blue:0.19, alpha:1.0)
+        }
+    }
+    
+    public func updateDrinkCollection(with drink: Drink!) {
+        if var drinksCollection = self.drinks[drink.type] {
+            drinksCollection.append(drink)
+            drinks[drink.type] = drinksCollection
+        }
+        else {
+            self.drinks[drink.type] = [drink]
+        }
+    }
+    
+    @IBAction func onInputCompleted(_ segue: UIStoryboardSegue) {
+        let segueIdentifier = segue.identifier
+        
+        if segueIdentifier == "onDrinkAddedSegue" {
+            updateCounts()
         }
     }
 }

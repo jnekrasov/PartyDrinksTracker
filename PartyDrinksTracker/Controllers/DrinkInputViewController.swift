@@ -29,6 +29,7 @@ class DrinkInputViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.titleLabel.text = currentTitle
+        self.currencySymbolTitle.text = Locale.current.currencySymbol
         let font = UIFont.systemFont(ofSize: 16)
         drinkCapacitySelector.setTitleTextAttributes(
             [NSAttributedString.Key.font: font],
@@ -55,6 +56,7 @@ class DrinkInputViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var drinkCapacitySelector: UISegmentedControl!
     @IBOutlet weak var currentPriceInput: UITextField!
+    @IBOutlet weak var currencySymbolTitle: UILabel!
     
     @IBAction func OnDrinkAdded(_ sender: Any) {
         do {
@@ -86,5 +88,15 @@ class DrinkInputViewController: UIViewController {
     
     public func updateTitle(title: String!) {
         self.currentTitle = title;
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueIdentifier = segue.identifier
+        
+        if segueIdentifier == "onDrinkAddedSegue" {
+            if let controller = segue.destination as? MainViewController {
+                controller.updateDrinkCollection(with: currentDrink)
+            }
+        }
     }
 }
