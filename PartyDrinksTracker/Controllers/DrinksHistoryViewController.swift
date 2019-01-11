@@ -12,14 +12,15 @@ class DrinksHistoryViewController: UIViewController, UITableViewDelegate, UITabl
     private var dailyDrinks: [DailyDrinksViewModel] = []
     private var dailyCigarretes: [DailyCigarretesViewModel] = []
     
+    private var context: DrinksDatabaseContext!
     private var drinksRepository: DrinksRepository!
     private var cigarretesRepository: CigarretesRepository!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        let context = DrinksDatabaseContext()
-        self.drinksRepository = DrinksRepository(context)
-        self.cigarretesRepository = CigarretesRepository(context)
+        self.context = DrinksDatabaseContext()
+        self.drinksRepository = DrinksRepository(self.context)
+        self.cigarretesRepository = CigarretesRepository(self.context)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,6 +62,38 @@ class DrinksHistoryViewController: UIViewController, UITableViewDelegate, UITabl
         return dailyDrinksHeaderViewModel
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            do {
+                var dailyDrinksViewModel = self.dailyDrinks[indexPath.section]
+                let drink = dailyDrinksViewModel.drinks[indexPath.row]
+                dailyDrinksViewModel.drinks.remove(at: indexPath.row)
+                
+                if (dailyDrinksViewModel.drinks.count > 0) {
+                    self.dailyDrinks[indexPath.section] = dailyDrinksViewModel
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                }
+                else {
+                    self.dailyDrinks.remove(at: indexPath.section)
+                    tableView.deleteSections(IndexSet([indexPath.section]), with: .fade)
+                }
+
+                try self.drinksRepository.Delete(drink)
+                self.context.SaveChanges()
+                
+                if let tabController = self.tabBarController,
+                    let mainController = tabController.viewControllers?[0] as? MainViewController {
+                    mainController.removeDrink(drink)
+                }
+            }
+            catch {
+                fatalError("Cannot delete selected drink")
+            }
+        }
+        
+        return [delete]
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let drinkCellViewModel = tableView.dequeueReusableCell(
             withIdentifier: "drinkViewCell",
@@ -89,7 +122,7 @@ class DrinksHistoryViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var drinksViewTable: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
-        drinksViewTable.separatorStyle = .none
+        drinksViewTable.tableFooterView = UIView()
         super.viewWillAppear(animated)
         self.drinksViewTable.rowHeight = 77
     }
@@ -140,6 +173,7 @@ class DrinksHistoryViewController: UIViewController, UITableViewDelegate, UITabl
             self.dailyDrinks.append(DailyDrinksViewModel(
                 drinksDate: GetGroupDate(for: drink),
                 drinks: [drink]))
+            self.dailyDrinks = self.dailyDrinks.sorted{$0 > $1}
         }
         
         self.drinksViewTable.reloadData()
@@ -160,6 +194,7 @@ class DrinksHistoryViewController: UIViewController, UITableViewDelegate, UITabl
             self.dailyCigarretes.append(DailyCigarretesViewModel(
                 cigarretesDate: GetGroupDate(for: cigarrete),
                 cigarretes: [cigarrete]))
+            self.dailyCigarretes = self.dailyCigarretes.sorted{$0 > $1}
         }
         
         drinksViewTable.reloadData()
@@ -187,7 +222,7 @@ class DrinksHistoryViewController: UIViewController, UITableViewDelegate, UITabl
                 return "\(capacity) of \(type)"
         default:
             if (drink.capacity == DrinkCapacity.Bottle) {
-                return "Uuuuh shots"
+                return "Lots of shots"
             }
             
             return capacity

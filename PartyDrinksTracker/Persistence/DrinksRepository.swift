@@ -46,6 +46,17 @@ class DrinksRepository: IDrinksRepository {
         return ToDomain(drinkEntities)
     }
     
+    public func Delete(_ drink: Drink!) throws {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: self.drinkEntityCollectionName)
+        fetchRequest.predicate = NSPredicate(format: "id == %@", drink.id! as CVarArg)
+        fetchRequest.fetchLimit = 1
+        
+        let drinkEntities =
+            try self.context.fetch(fetchRequest)
+        
+        context.delete(drinkEntities.first as! DrinkEntity)
+    }
+    
     private func ToDomain(_ drinkEntities: [DrinkEntity]) -> [Drink] {
         return drinkEntities.map({ (entity: DrinkEntity) -> Drink in
             let drink = Drink(type: DrinkType(rawValue: entity.type!.id))

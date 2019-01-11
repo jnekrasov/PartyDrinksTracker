@@ -149,6 +149,14 @@ class MainViewController: UIViewController {
         }
     }
     
+    public func removeDrink(_ drink: Drink!) {
+        if var drinksCollection = self.drinks[drink.type] {
+            drinksCollection.removeAll(where: {$0.id == drink.id})
+            self.drinks[drink.type] = drinksCollection
+            updateCounts()
+        }
+    }
+    
     @IBAction func onInputCompleted(_ segue: UIStoryboardSegue) {
         let segueIdentifier = segue.identifier
         

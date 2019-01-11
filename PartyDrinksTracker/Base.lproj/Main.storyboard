@@ -326,7 +326,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="io5-dn-OHi">
                                 <rect key="frame" x="37" y="60" width="340" height="320"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="...price for another one" textAlignment="right" minimumFontSize="26" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eru-ik-MID" userLabel="PriceInput">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price for another one" textAlignment="right" minimumFontSize="26" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eru-ik-MID" userLabel="PriceInput">
                                         <rect key="frame" x="50" y="84" width="270" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="270" id="iuA-5k-4kw"/>
