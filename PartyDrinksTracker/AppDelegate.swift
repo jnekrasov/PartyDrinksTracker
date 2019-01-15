@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             PrePopullateDrinkTypes()
             UserDefaultsRepository.AreDrinkTypesPrePopullated = true
         }
+
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-3940256099942544~1458002511")
         
         return true
     }

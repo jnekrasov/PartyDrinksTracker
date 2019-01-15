@@ -1,0 +1,6 @@
+framework module Pods_PartyDrinksTrackerUITests {
+  umbrella header "Pods-PartyDrinksTrackerUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

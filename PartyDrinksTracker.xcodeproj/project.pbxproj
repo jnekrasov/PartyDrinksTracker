@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27466A056B9FB63120AF3A70 /* Pods_PartyDrinksTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 999B91354CDDF13B55E581EF /* Pods_PartyDrinksTrackerUITests.framework */; };
+		576AC1748A4891A472E2C8C8 /* Pods_PartyDrinksTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 458A2F0133B0B79BF76C2AB7 /* Pods_PartyDrinksTracker.framework */; };
 		952107E621E12F3E00C63A8C /* DrinkCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952107E521E12F3E00C63A8C /* DrinkCellViewModel.swift */; };
 		952107E821E131FC00C63A8C /* DrinksHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952107E721E131FB00C63A8C /* DrinksHistoryViewController.swift */; };
 		952107EA21E2564600C63A8C /* DailyDrinksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952107E921E2564600C63A8C /* DailyDrinksViewModel.swift */; };
@@ -40,6 +42,7 @@
 		95DD964621E50613007E7133 /* DailyDrinksHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DD964521E50613007E7133 /* DailyDrinksHeaderViewModel.swift */; };
 		95DD964821E5D982007E7133 /* Auditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DD964721E5D982007E7133 /* Auditable.swift */; };
 		95DD964B21E62BFC007E7133 /* DailyCigarretesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DD964A21E62BFC007E7133 /* DailyCigarretesViewModel.swift */; };
+		E06132A0EBD6FEE0FE7AA1F8 /* Pods_PartyDrinksTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84309BC0E86A098BBC13B7B6 /* Pods_PartyDrinksTrackerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EBDBD1C01B96775FC0558B5 /* Pods-PartyDrinksTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyDrinksTrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PartyDrinksTrackerTests/Pods-PartyDrinksTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		1FFF62B2F51C2B3034D5A900 /* Pods-PartyDrinksTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyDrinksTrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PartyDrinksTrackerTests/Pods-PartyDrinksTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3B8579201453F5F2B3EB7CBC /* Pods-PartyDrinksTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyDrinksTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PartyDrinksTracker/Pods-PartyDrinksTracker.release.xcconfig"; sourceTree = "<group>"; };
+		458A2F0133B0B79BF76C2AB7 /* Pods_PartyDrinksTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyDrinksTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D8B6AA9DE64854384CB9F88 /* Pods-PartyDrinksTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyDrinksTrackerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PartyDrinksTrackerUITests/Pods-PartyDrinksTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		84309BC0E86A098BBC13B7B6 /* Pods_PartyDrinksTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyDrinksTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		952107E521E12F3E00C63A8C /* DrinkCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCellViewModel.swift; sourceTree = "<group>"; };
 		952107E721E131FB00C63A8C /* DrinksHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksHistoryViewController.swift; sourceTree = "<group>"; };
 		952107E921E2564600C63A8C /* DailyDrinksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDrinksViewModel.swift; sourceTree = "<group>"; };
@@ -99,6 +108,9 @@
 		95DD964521E50613007E7133 /* DailyDrinksHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDrinksHeaderViewModel.swift; sourceTree = "<group>"; };
 		95DD964721E5D982007E7133 /* Auditable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auditable.swift; sourceTree = "<group>"; };
 		95DD964A21E62BFC007E7133 /* DailyCigarretesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCigarretesViewModel.swift; sourceTree = "<group>"; };
+		999B91354CDDF13B55E581EF /* Pods_PartyDrinksTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyDrinksTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1FBD391564064486300BFD0 /* Pods-PartyDrinksTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyDrinksTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PartyDrinksTracker/Pods-PartyDrinksTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		E2BD34832B89566EE9942784 /* Pods-PartyDrinksTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyDrinksTrackerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PartyDrinksTrackerUITests/Pods-PartyDrinksTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				576AC1748A4891A472E2C8C8 /* Pods_PartyDrinksTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E06132A0EBD6FEE0FE7AA1F8 /* Pods_PartyDrinksTrackerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,12 +134,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27466A056B9FB63120AF3A70 /* Pods_PartyDrinksTrackerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		458C666C0C51871709F29C28 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B1FBD391564064486300BFD0 /* Pods-PartyDrinksTracker.debug.xcconfig */,
+				3B8579201453F5F2B3EB7CBC /* Pods-PartyDrinksTracker.release.xcconfig */,
+				1FFF62B2F51C2B3034D5A900 /* Pods-PartyDrinksTrackerTests.debug.xcconfig */,
+				1EBDBD1C01B96775FC0558B5 /* Pods-PartyDrinksTrackerTests.release.xcconfig */,
+				E2BD34832B89566EE9942784 /* Pods-PartyDrinksTrackerUITests.debug.xcconfig */,
+				4D8B6AA9DE64854384CB9F88 /* Pods-PartyDrinksTrackerUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		952107E421E12F1A00C63A8C /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +233,8 @@
 				95D78E8721C998D600B97B95 /* PartyDrinksTrackerTests */,
 				95D78E9221C998D600B97B95 /* PartyDrinksTrackerUITests */,
 				95D78E6E21C998D400B97B95 /* Products */,
+				458C666C0C51871709F29C28 /* Pods */,
+				C415EB01A30636A4E0441724 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -283,6 +313,16 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		C415EB01A30636A4E0441724 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84309BC0E86A098BBC13B7B6 /* Pods_PartyDrinksTrackerTests.framework */,
+				999B91354CDDF13B55E581EF /* Pods_PartyDrinksTrackerUITests.framework */,
+				458A2F0133B0B79BF76C2AB7 /* Pods_PartyDrinksTracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -290,9 +330,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95D78E9821C998D600B97B95 /* Build configuration list for PBXNativeTarget "PartyDrinksTracker" */;
 			buildPhases = (
+				2E3C8599F11FA679EE1FD3C1 /* [CP] Check Pods Manifest.lock */,
 				95D78E6921C998D400B97B95 /* Sources */,
 				95D78E6A21C998D400B97B95 /* Frameworks */,
 				95D78E6B21C998D400B97B95 /* Resources */,
+				6DE48F5F45B570E8E51B2D92 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -307,6 +349,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95D78E9B21C998D600B97B95 /* Build configuration list for PBXNativeTarget "PartyDrinksTrackerTests" */;
 			buildPhases = (
+				2194D20D183F85E3014BF0D6 /* [CP] Check Pods Manifest.lock */,
 				95D78E8021C998D600B97B95 /* Sources */,
 				95D78E8121C998D600B97B95 /* Frameworks */,
 				95D78E8221C998D600B97B95 /* Resources */,
@@ -325,6 +368,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95D78E9E21C998D600B97B95 /* Build configuration list for PBXNativeTarget "PartyDrinksTrackerUITests" */;
 			buildPhases = (
+				F8C7EEC581335B0A407EE103 /* [CP] Check Pods Manifest.lock */,
 				95D78E8B21C998D600B97B95 /* Sources */,
 				95D78E8C21C998D600B97B95 /* Frameworks */,
 				95D78E8D21C998D600B97B95 /* Resources */,
@@ -410,6 +454,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2194D20D183F85E3014BF0D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PartyDrinksTrackerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2E3C8599F11FA679EE1FD3C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PartyDrinksTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6DE48F5F45B570E8E51B2D92 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PartyDrinksTracker/Pods-PartyDrinksTracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PartyDrinksTracker/Pods-PartyDrinksTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8C7EEC581335B0A407EE103 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PartyDrinksTrackerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		95D78E6921C998D400B97B95 /* Sources */ = {
@@ -614,6 +751,7 @@
 		};
 		95D78E9921C998D600B97B95 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1FBD391564064486300BFD0 /* Pods-PartyDrinksTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -632,6 +770,7 @@
 		};
 		95D78E9A21C998D600B97B95 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B8579201453F5F2B3EB7CBC /* Pods-PartyDrinksTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -650,6 +789,7 @@
 		};
 		95D78E9C21C998D600B97B95 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FFF62B2F51C2B3034D5A900 /* Pods-PartyDrinksTrackerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -671,6 +811,7 @@
 		};
 		95D78E9D21C998D600B97B95 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EBDBD1C01B96775FC0558B5 /* Pods-PartyDrinksTrackerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -692,6 +833,7 @@
 		};
 		95D78E9F21C998D600B97B95 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2BD34832B89566EE9942784 /* Pods-PartyDrinksTrackerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -712,6 +854,7 @@
 		};
 		95D78EA021C998D600B97B95 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D8B6AA9DE64854384CB9F88 /* Pods-PartyDrinksTrackerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

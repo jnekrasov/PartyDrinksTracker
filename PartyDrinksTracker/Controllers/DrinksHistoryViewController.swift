@@ -66,10 +66,11 @@ class DrinksHistoryViewController: UIViewController, UITableViewDelegate, UITabl
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             do {
                 var dailyDrinksViewModel = self.dailyDrinks[indexPath.section]
+                let dailyCigarretesViewModel = self.dailyCigarretes[indexPath.section]
                 let drink = dailyDrinksViewModel.drinks[indexPath.row]
                 dailyDrinksViewModel.drinks.remove(at: indexPath.row)
                 
-                if (dailyDrinksViewModel.drinks.count > 0) {
+                if (dailyDrinksViewModel.drinks.count > 0 || dailyCigarretesViewModel.cigarretes.count > 0) {
                     self.dailyDrinks[indexPath.section] = dailyDrinksViewModel
                     tableView.deleteRows(at: [indexPath], with: .fade)
                 }
@@ -155,15 +156,6 @@ class DrinksHistoryViewController: UIViewController, UITableViewDelegate, UITabl
                     drinksDate: key,
                     drinks: values.sorted{$0.created > $1.created})
                 }.sorted{$0 > $1}
-            
-            let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
-            swipeRight.direction = UISwipeGestureRecognizer.Direction.right
-            self.view.addGestureRecognizer(swipeRight)
-            
-            let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
-            swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
-            self.view.addGestureRecognizer(swipeLeft)
-
         } catch {
             fatalError("Cannot get drinks list to popullate")
         }
@@ -209,19 +201,6 @@ class DrinksHistoryViewController: UIViewController, UITableViewDelegate, UITabl
         }
         
         drinksViewTable.reloadData()
-    }
-    
-    @objc func swiped(_ gesture: UISwipeGestureRecognizer) {
-        if gesture.direction == .left {
-            if (self.tabBarController?.selectedIndex)! < 2
-            {
-                self.tabBarController?.selectedIndex += 1
-            }
-        } else if gesture.direction == .right {
-            if (self.tabBarController?.selectedIndex)! > 0 {
-                self.tabBarController?.selectedIndex -= 1
-            }
-        }
     }
     
     private func GetDrinkImageRepresentation(_ drink: Drink!) -> UIImage {

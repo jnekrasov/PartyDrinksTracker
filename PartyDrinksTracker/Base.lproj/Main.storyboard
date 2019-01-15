@@ -287,13 +287,23 @@
                                     <constraint firstItem="GZ0-DT-aqC" firstAttribute="top" secondItem="ATZ-Va-ksd" secondAttribute="bottom" constant="-10" id="qHU-Lc-Y50"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ae-cV-4Rg" userLabel="AdMobBanner" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="637" width="414" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="WHH-ch-dqf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="3Ae-cV-4Rg" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Dbe-wr-iNk"/>
                             <constraint firstItem="syj-Sl-Osm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ewl-Nm-o3o"/>
+                            <constraint firstItem="3Ae-cV-4Rg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="SuR-c9-dwq"/>
                             <constraint firstItem="syj-Sl-Osm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="YaE-yA-msA"/>
                             <constraint firstItem="syj-Sl-Osm" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="hGy-6i-Gu8"/>
                             <constraint firstItem="syj-Sl-Osm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pwK-6U-iFg"/>
+                            <constraint firstItem="3Ae-cV-4Rg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qZ9-k1-DLB"/>
                             <constraint firstItem="syj-Sl-Osm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rI6-RS-XaI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -301,6 +311,7 @@
                     <tabBarItem key="tabBarItem" title="Drinks" image="TabBarBeer" id="J8K-q2-1N0"/>
                     <navigationItem key="navigationItem" id="QvL-EB-Day"/>
                     <connections>
+                        <outlet property="bannerView" destination="3Ae-cV-4Rg" id="fYf-pY-xGB"/>
                         <outlet property="beerCount" destination="7lv-oL-e9e" id="O0D-TN-w6t"/>
                         <outlet property="beerPrice" destination="iEE-vS-CDj" id="MmX-QK-q4Y"/>
                         <outlet property="cigarretesCount" destination="Pwi-HY-KaU" id="FyZ-cE-lsN"/>

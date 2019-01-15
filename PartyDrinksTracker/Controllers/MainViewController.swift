@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MainViewController: UIViewController {
     private var drinks: Dictionary<DrinkType, [Drink]> = [:]
@@ -31,6 +32,7 @@ class MainViewController: UIViewController {
         
         super.init(coder: aDecoder)
     }
+    @IBOutlet weak var bannerView: GADBannerView!
     
     @IBAction func OnCigarreteAdded(_ sender: Any) {
         do {
@@ -54,6 +56,10 @@ class MainViewController: UIViewController {
         self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
         self.scrollView.isDirectionalLockEnabled = true
         updateCounts()
+        
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
     }
     
     override func viewDidLoad() {
