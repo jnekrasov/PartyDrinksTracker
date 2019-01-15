@@ -66,11 +66,12 @@ class DrinksHistoryViewController: UIViewController, UITableViewDelegate, UITabl
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             do {
                 var dailyDrinksViewModel = self.dailyDrinks[indexPath.section]
-                let dailyCigarretesViewModel = self.dailyCigarretes[indexPath.section]
+                let sectionDailyCigarretes = self.dailyCigarretes.first(
+                    where: {$0.cigarretesDate == dailyDrinksViewModel.drinksDate})?.cigarretes ?? []
                 let drink = dailyDrinksViewModel.drinks[indexPath.row]
                 dailyDrinksViewModel.drinks.remove(at: indexPath.row)
                 
-                if (dailyDrinksViewModel.drinks.count > 0 || dailyCigarretesViewModel.cigarretes.count > 0) {
+                if (dailyDrinksViewModel.drinks.count > 0 || sectionDailyCigarretes.count > 0) {
                     self.dailyDrinks[indexPath.section] = dailyDrinksViewModel
                     tableView.deleteRows(at: [indexPath], with: .fade)
                 }
@@ -125,6 +126,7 @@ class DrinksHistoryViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var drinksViewTable: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
+        
         drinksViewTable.tableFooterView = UIView()
         super.viewWillAppear(animated)
         self.drinksViewTable.rowHeight = 77
